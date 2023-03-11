@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Brian Kung
+	email = brianhingyenkung@gmail.com
+[init]
+	defaultBranch = main
+[alias]
+	co = checkout
+[credential]
+	helper = osxkeychain
