@@ -14,3 +14,9 @@ alias gl="git log"
 alias gc="git commit"
 alias wk="cd ~/Code"
 alias dl="cd ~/Downloads"
+
+# Nix $PATH hackery, see:
+# https://github.com/DeterminateSystems/nix-installer/issues/327
+
+NIX_BIN_PATHS="/Users/brian/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
+export PATH="$NIX_BIN_PATHS:$PATH"
