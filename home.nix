@@ -9,6 +9,24 @@
     includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
   };
 
+  home.packages = [
+    pkgs.bat
+    pkgs.comma
+    pkgs.coreutils
+    pkgs.fortune
+    pkgs.gnused
+    pkgs.htop
+    pkgs.jq
+    pkgs.libiconv
+    pkgs.nix-bash-completions
+    pkgs.nixfmt
+    pkgs.nodejs
+    pkgs.ponysay
+    pkgs.ripgrep
+    pkgs.tree
+    pkgs.wget
+  ];
+
   programs.zsh = {
     enable = true;
     initExtra = builtins.readFile ./zshrc;
