@@ -1,14 +1,10 @@
 # Enable Cargo
 . "$HOME/.cargo/env"
 
-# This was added for jsonresume to work
-export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-export PUPPETEER_EXECUTABLE_PATH=`which chromium`
-export PATH="$HOME/.flutter/bin:$PATH"
-export PATH="$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:${PATH}"
-# Erlang's rebar3
-# export PATH="/Users/brian/.cache/rebar3/bin:$PATH"
+# Enable starship
+source <(/Users/brian/.nix-profile/bin/starship init zsh --print-full-init)
 
+# Git aliases
 alias gs="git status"
 alias gd="git diff"
 alias gdc="git diff --staged"
@@ -18,4 +14,3 @@ alias gl="git log"
 alias gc="git commit"
 alias wk="cd ~/Code"
 alias dl="cd ~/Downloads"
-
