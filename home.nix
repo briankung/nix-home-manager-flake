@@ -31,6 +31,6 @@
 
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./zshrc;
+    initExtra = builtins.readFile ./zshrc ./wk-zshrc;
   };
 }
