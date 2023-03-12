@@ -8,4 +8,9 @@
     enable = true;
     includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
   };
+
+  programs.zsh = {
+    enable = true;
+    initExtra = builtins.readFile ./zshrc;
+  };
 }
