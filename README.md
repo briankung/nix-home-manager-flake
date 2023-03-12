@@ -2,8 +2,9 @@
 
 ## Setup
 
-1. Install the [DeterminateSystems/nix-installer](https://github.com/DeterminateSystems/nix-installer)
+1. Install the [DeterminateSystems/nix-installer](https://github.com/DeterminateSystems/nix-installer):
 
+    `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
 2. Clone this repo into your `~/.config` directory and `cd` into it
 3. Run `nix run . && home-manager switch -b bak`
 
