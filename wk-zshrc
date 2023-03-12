@@ -9,7 +9,6 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 . "$HOME/.cargo/env"
 
 eval "$(direnv hook zsh)"
-eval "$(starship init zsh)"
 eval "$(rbenv init - zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
