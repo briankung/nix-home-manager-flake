@@ -23,6 +23,7 @@
     pkgs.nodejs
     pkgs.ponysay
     pkgs.ripgrep
+    pkgs.starship
     pkgs.tree
     pkgs.wget
   ];
