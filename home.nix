@@ -21,6 +21,7 @@
     pkgs.nix-bash-completions
     pkgs.nixfmt
     pkgs.nodejs
+    pkgs.pandoc
     pkgs.ponysay
     pkgs.ripgrep
     pkgs.ruby_3_1
