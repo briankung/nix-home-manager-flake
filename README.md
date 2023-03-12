@@ -5,7 +5,9 @@
 1. Install the [DeterminateSystems/nix-installer](https://github.com/DeterminateSystems/nix-installer):
 
     `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
-2. Clone this repo into your `~/.config` directory and `cd` into it
+2. `cd ~/.config`
+3. `git clone git@github.com:briankung/nix-home-manager-flake.git nixpkgs`
+4. `cd nixpkgs`
 3. Run `nix run . && home-manager switch -b bak`
 
 In the future just `nix run . && home-manager switch`
