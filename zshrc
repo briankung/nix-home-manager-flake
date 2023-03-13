@@ -6,6 +6,7 @@ source <(/Users/brian/.nix-profile/bin/starship init zsh --print-full-init)
 
 # Git aliases
 alias gs="git status"
+alias gb="git branch"
 alias gd="git diff"
 alias gdc="git diff --staged"
 alias ga="git add"
