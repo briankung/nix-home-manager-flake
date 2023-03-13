@@ -15,6 +15,8 @@ alias gl="git log"
 alias gc="git commit"
 alias wk="cd ~/Code"
 alias dl="cd ~/Downloads"
+alias play-nix="cd ~/.config/nixpkgs && code ."
+alias refresh-nix="nix run ~/.config/nixpkgs switch"
 
 # Nix $PATH hackery, see:
 # https://github.com/DeterminateSystems/nix-installer/issues/327
