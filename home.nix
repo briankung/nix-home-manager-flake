@@ -6,7 +6,20 @@
 
   programs.git = {
     enable = true;
-    includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
+    userName = "Brian Kung";
+    userEmail = "brian.kung@backpacknetworks.com";
+    ignores = [ "*~" ".DS_Store" ".direnv" ".env" ".rgignore" ];
+    extraConfig = {
+      init = { defaultBranch = "main"; };
+      pull = { ff = "only"; };
+      push = { autoSetupRemote = true; };
+    };
+    delta = { enable = true; };
+    aliases = {
+      co = "checkout";
+      cleanbr =
+        "!git remote prune origin && git co master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d && git co -";
+    };
   };
 
   home.packages = [
