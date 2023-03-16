@@ -17,7 +17,7 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 alias dcup="docker-compose up"
 alias dcdown="docker-compose down"
 
-alias wk="cd /Users/brian/Code"
+alias wk="cd ~/Code/github/bractlet"
 alias dl="cd /Users/brian/Downloads"
 
 alias db="cd /Users/brian/Bractlet/db"
