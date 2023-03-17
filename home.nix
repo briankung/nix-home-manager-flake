@@ -21,6 +21,7 @@
     pkgs.nix-bash-completions
     pkgs.nixfmt
     pkgs.nodejs
+    pkgs.nodePackages.sql-formatter
     pkgs.nodePackages_latest.mermaid-cli
     pkgs.pandoc
     pkgs.ponysay
