@@ -10,6 +10,7 @@
   };
 
   home.packages = [
+    pkgs.atuin
     pkgs.bat
     pkgs.comma
     pkgs.coreutils
