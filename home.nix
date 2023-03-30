@@ -36,6 +36,7 @@
     pkgs.nodejs
     pkgs.nodePackages.sql-formatter
     pkgs.nodePackages_latest.mermaid-cli
+    pkgs.nodePackages_latest.typescript-language-server
     pkgs.pandoc
     pkgs.ponysay
     pkgs.ripgrep
