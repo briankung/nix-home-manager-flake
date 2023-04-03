@@ -13,6 +13,11 @@
     enable = true;
   };
 
+  programs.zsh = {
+    enable = true;
+    initExtra = builtins.readFile ./zshrc;
+  };
+
   home.packages = [
     pkgs.bat
     pkgs.comma
@@ -37,9 +42,4 @@
     pkgs.wget
     pkgs.zbar
   ];
-
-  programs.zsh = {
-    enable = true;
-    initExtra = builtins.readFile ./zshrc;
-  };
 }
