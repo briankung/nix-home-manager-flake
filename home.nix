@@ -32,6 +32,7 @@
     pkgs.starship
     pkgs.tree
     pkgs.wget
+    pkgs.zbar
   ];
 
   programs.zsh = {
