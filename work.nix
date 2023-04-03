@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
-  programs.git = {
-    userEmail = mkForce "brian.kung@backpacknetworks.com";
+{ pkgs, lib, ... }: {
+  programs.git = lib.mkForce {
+    userEmail = "brian.kung@backpacknetworks.com";
   };
 
-  programs.zsh = {
-    initExtra = mkForce
+  programs.zsh = lib.mkForce {
+    initExtra =
       builtins.readFile ./zshrc + builtins.readFile ./wk-zshrc;
   };
 
