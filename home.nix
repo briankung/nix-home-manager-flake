@@ -7,7 +7,7 @@
   programs.git = {
     enable = true;
     userName = "Brian Kung";
-    userEmail = "brian.kung@backpacknetworks.com";
+    userEmail = "github@briankung.xyz";
     ignores = [ "*~" ".DS_Store" ".direnv" ".env" ".rgignore" ];
     extraConfig = {
       init = { defaultBranch = "main"; };
