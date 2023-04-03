@@ -9,8 +9,11 @@
     includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
   };
 
+  programs.atuin = {
+    enable = true;
+  };
+
   home.packages = [
-    pkgs.atuin
     pkgs.bat
     pkgs.comma
     pkgs.coreutils
