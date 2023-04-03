@@ -32,7 +32,7 @@
 
         "obsidian" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          modules = [ ./home.nix ./work.nix ];
+          modules = [ ./home.nix ./wk.nix ];
         };
 
         "foundation" = home-manager.lib.homeManagerConfiguration {
