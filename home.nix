@@ -13,31 +13,42 @@
     enable = true;
   };
 
+  programs.bat = {
+    enable = true;
+  };
+
+  programs.jq = {
+    enable = true;
+  };
+
+  programs.pandoc = {
+    enable = true;
+  };
+
+  programs.starship = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     initExtra = builtins.readFile ./zshrc;
   };
 
   home.packages = [
-    pkgs.bat
-    pkgs.comma
     pkgs.coreutils
     pkgs.fortune
     pkgs.gnused
     pkgs.htop
-    pkgs.jq
     pkgs.libiconv
     pkgs.nix-bash-completions
     pkgs.nixfmt
     pkgs.nodejs
     pkgs.nodePackages.sql-formatter
     pkgs.nodePackages_latest.mermaid-cli
-    pkgs.pandoc
     pkgs.ponysay
     pkgs.ripgrep
     pkgs.rsync
     pkgs.ruby_3_1
-    pkgs.starship
     pkgs.tree
     pkgs.wget
     pkgs.zbar
