@@ -1,0 +1,175 @@
+# This is so annoying
+# ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
+# Prepend homebrew
+export PATH="/opt/homebrew/bin/:$PATH"
+# update $PATH for libpq (which includes psql)
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+# Cargo
+. "$HOME/.cargo/env"
+
+eval "$(direnv hook zsh)"
+
+# ☁️ google cloud sdk ☁️
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+alias dcup="docker-compose up"
+alias dcdown="docker-compose down"
+
+alias wk="cd ~/Code/github/bractlet"
+alias dl="cd /Users/brian/Downloads"
+
+alias db="cd /Users/brian/Bractlet/db"
+alias 42="cd /Users/brian/Code/github/bractlet/forty-two"
+
+##### FUNCTIONS ####
+
+play() {
+    cd /Users/brian/Code/local/play;
+    code .;
+}
+
+db-mearas() {
+    docker exec -it db-postgres-1 psql "postgresql://postgres:docker@0.0.0.0/mearas_development"
+}
+
+grep-mearas() {
+    (
+        cd /Users/brian/Code/github/briankung-bpn/mearas-search;
+
+        rg "(^table_schema)|$@" -I <mearas_development_schema.csv | \
+            column -s, -t | \
+            cat -n;
+    )
+}
+
+db-reporter() {
+    docker exec -it reporter-report-db-1 psql "postgresql://postgres:docker@0.0.0.0:5432"
+}
+
+export JWT="eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VyX2lkIjoxMTU4LCJhY2NvdW50X2lkIjpudWxsfQ.DjPd2YhCfd3rc49u4euFMUykwRs1z9r2MsZCgkc6oTE";
+
+export ACCOUNT_ID="49";
+
+# Get all templates if you don't supply an argument
+# Get a single template if you supply a numerical id as an argument
+reporter-get-templates() {
+    TEMPLATE_ID="$1";
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/templates/$TEMPLATE_ID?account_id=$ACCOUNT_ID" \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT"
+}
+
+# Get all templates if you don't supply an argument
+# Get a single template if you supply a numerical id as an argument
+staging-reporter-get-templates() {
+    # https://api.bractlet-staging.com/reporter/templates?account_id=68
+    TEMPLATE_ID="$1";
+    curl "https://api.bractlet-staging.com/reporter/templates/$TEMPLATE_ID?account_id=$ACCOUNT_ID" \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT"
+}
+
+# Get all versions of a single template. The id must be given as the first argument
+reporter-get-templates-versions() {
+    TEMPLATE_ID="$1";
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/templates/$TEMPLATE_ID/versions?account_id=$ACCOUNT_ID" \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT"
+}
+
+# Update a single template. The id must be given as the first argument.
+reporter-put-templates() {
+    TEMPLATE_ID="$1";
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/templates/$TEMPLATE_ID?account_id=$ACCOUNT_ID" \
+    -X PUT \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT" \
+    --data-raw $'{
+        "name": "Updated Building",
+        "sites": [
+            145,315,234,177,337
+        ],
+        "fields": [
+            "address",
+            "building_name",
+            "city",
+            "gross_sq_ft",
+            "legal_name",
+            "property_type",
+            "rentable_sq_ft",
+            "site_id",
+            "state",
+            "year_constructed"
+        ],
+        "sorting": {
+        "order": "desc",
+        "column": "gross_sq_ft"
+        },
+        "id": 1
+    }'
+}
+
+# Create a new template. An id of the newly created template should be returned.
+reporter-post-templates() {
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/templates/?account_id=$ACCOUNT_ID" \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT" \
+    --data-raw $'{
+        "name": "New Building",
+        "sites": [
+        0
+        ],
+        "fields": [
+        "building_name",
+        "gross_sq_ft"
+        ],
+        "sorting": {
+        "order": "desc",
+        "column": "gross_sq_ft"
+        },
+        "id": 1
+    }'
+}
+
+# Soft delete a single template
+reporter-delete-template() {
+    TEMPLATE_ID="$1";
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/templates/$TEMPLATE_ID?account_id=$ACCOUNT_ID" \
+    -X DELETE \
+    -H 'Content-Type: application/json' \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT"
+}
+
+# Get field info for all fields
+reporter-get-fields() {
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/fields/" \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT"
+}
+
+# Get report from template id given in first argument
+reporter-get-report() {
+    REPORT_ID="$1";
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/reports/$REPORT_ID?account_id=$ACCOUNT_ID" \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT"
+}
+
+get-energy-star-metrics() {
+    curl "https://app.bpn-staging.com/energy_star/property/3632062/metrics?year=2023&month=3&measurementSystem=EPA" \
+        -H "Authorization: Bearer $JWT" \
+        -H "pm-metrics: score, reasonsForNoScore, energyStarCertificationApplicationStatus, energyStarCertificationYearsWithScores, energyStarCertificationEligibility, energyStarCertificationNextEligibleDate, energyStarCertificationLastApprovalDate, verifiedPeriodEndingDate" \
+    | xq
+}
+
+reporter-get-energy-report() {
+    curl "http://127.0.0.1:$ROCKET_PORT/reporter/reports/energy_star_certification?account_id=$ACCOUNT_ID" \
+    -H 'accept: application/json' \
+    -H "Authorization: Bearer $JWT"
+}

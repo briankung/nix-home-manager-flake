@@ -6,7 +6,20 @@
 
   programs.git = {
     enable = true;
-    includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
+    userName = "Brian Kung";
+    userEmail = "brian.kung@backpacknetworks.com";
+    ignores = [ "*~" ".DS_Store" ".direnv" ".env" ".rgignore" ];
+    extraConfig = {
+      init = { defaultBranch = "main"; };
+      pull = { ff = "only"; };
+      push = { autoSetupRemote = true; };
+    };
+    delta = { enable = true; };
+    aliases = {
+      co = "checkout";
+      cleanbr =
+        "!git remote prune origin && git co master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d && git co -";
+    };
   };
 
   programs.atuin = {
@@ -31,7 +44,8 @@
 
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./zshrc;
+    initExtra =
+      builtins.readFile ./zshrc + builtins.readFile ./wk-zshrc;
   };
 
   home.packages = [
@@ -42,9 +56,10 @@
     pkgs.libiconv
     pkgs.nix-bash-completions
     pkgs.nixfmt
-    pkgs.nodejs
+    pkgs.nodejs-16_x
     pkgs.nodePackages.sql-formatter
     pkgs.nodePackages_latest.mermaid-cli
+    pkgs.nodePackages_latest.typescript-language-server
     pkgs.ponysay
     pkgs.ripgrep
     pkgs.rsync
