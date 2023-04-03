@@ -22,4 +22,8 @@
     initExtra =
       builtins.readFile ./zshrc + builtins.readFile ./wk-zshrc;
   };
+
+  home.packages = [
+    pkgs.google-cloud-sdk
+  ];
 }

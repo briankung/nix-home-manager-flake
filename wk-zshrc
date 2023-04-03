@@ -11,8 +11,7 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 eval "$(direnv hook zsh)"
 
 # ☁️ google cloud sdk ☁️
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "$HOME/.nix-profile/google-cloud-sdk/path.zsh.inc"
 
 alias dcup="docker-compose up"
 alias dcdown="docker-compose down"
