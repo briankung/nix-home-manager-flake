@@ -15,8 +15,8 @@ alias gap="git add -p"
 alias gl="git log"
 alias gc="git commit"
 alias dl="cd ~/Downloads"
-alias play-nix="cd ~/.config/nixpkgs && code ."
-alias refresh-nix="nix run ~/.config/nixpkgs switch && source ~/.zshrc"
+alias play-nix="cd ~/.config/nixpkgs"
+alias wk="cd ~/Code"
 
 # Nix $PATH hackery, see:
 # https://github.com/DeterminateSystems/nix-installer/issues/327
