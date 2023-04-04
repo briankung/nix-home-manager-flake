@@ -36,6 +36,7 @@
 
   home.packages = [
     pkgs.coreutils
+    pkgs.dua
     pkgs.fd
     pkgs.fortune
     pkgs.gnused
