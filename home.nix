@@ -50,6 +50,7 @@
 
   home.packages = [
     pkgs.coreutils
+    pkgs.fd
     pkgs.fortune
     pkgs.gnused
     pkgs.htop
