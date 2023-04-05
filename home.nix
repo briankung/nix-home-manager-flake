@@ -22,31 +22,18 @@
     };
   };
 
-  programs.atuin = {
-    enable = true;
-  };
-
-  programs.bat = {
-    enable = true;
-  };
-
-  programs.jq = {
-    enable = true;
-  };
-
-  programs.pandoc = {
-    enable = true;
-  };
-
-  programs.starship = {
-    enable = true;
-  };
-
   programs.zsh = {
     enable = true;
     initExtra =
       builtins.readFile ./zshrc;
   };
+
+  programs.atuin.enable = true;
+  programs.bat.enable = true;
+  programs.jq.enable = true;
+  programs.pandoc.enable = true;
+  programs.starship.enable = true;
+  programs.yt-dlp.enable = true;
 
   home.packages = [
     pkgs.coreutils
