@@ -14,7 +14,6 @@
       pull = { ff = "only"; };
       push = { autoSetupRemote = true; };
     };
-    delta = { enable = true; };
     aliases = {
       co = "checkout";
       cleanbr =
