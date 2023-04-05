@@ -57,10 +57,10 @@
     pkgs.libiconv
     pkgs.nix-bash-completions
     pkgs.nixfmt
-    pkgs.nodejs
     pkgs.nodePackages.sql-formatter
     pkgs.nodePackages_latest.mermaid-cli
     pkgs.nodePackages_latest.typescript-language-server
+    pkgs.nodejs
     pkgs.ponysay
     pkgs.ripgrep
     pkgs.rsync
