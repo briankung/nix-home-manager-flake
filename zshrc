@@ -22,4 +22,5 @@ alias wk="cd ~/Code"
 # https://github.com/DeterminateSystems/nix-installer/issues/327
 
 NIX_BIN_PATHS="/Users/brian/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
-export PATH="$NIX_BIN_PATHS:$PATH"
+LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
+export PATH="$NIX_BIN_PATHS:$LOCAL_BIN_PATHS:$PATH"
