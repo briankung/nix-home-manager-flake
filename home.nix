@@ -40,11 +40,11 @@
       gl = "git log";
       gc = "git commit";
     };
-
   };
 
   programs.atuin.enable = true;
   programs.bat.enable = true;
+  programs.fzf.enable = true;
   programs.jq.enable = true;
   programs.pandoc.enable = true;
   programs.starship.enable = true;
