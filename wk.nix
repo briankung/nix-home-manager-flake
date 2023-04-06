@@ -38,5 +38,28 @@
     };
   };
 
-  home.packages = [ pkgs.google-cloud-sdk ];
+  home.packages = [
+    pkgs.coreutils
+    pkgs.dua
+    pkgs.fd
+    pkgs.fortune
+    pkgs.gnused
+    pkgs.htop
+    pkgs.libiconv
+    pkgs.nix-bash-completions
+    pkgs.nixfmt
+    pkgs.nodePackages.sql-formatter
+    pkgs.nodePackages_latest.mermaid-cli
+    pkgs.nodePackages_latest.typescript-language-server
+    pkgs.nodejs
+    pkgs.ponysay
+    pkgs.ripgrep
+    pkgs.rsync
+    pkgs.ruby_3_1
+    pkgs.tree
+    pkgs.wget
+    pkgs.zbar
+    # wk
+    pkgs.google-cloud-sdk
+  ];
 }
