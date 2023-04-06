@@ -45,6 +45,7 @@
 
   programs.atuin.enable = true;
   programs.bat.enable = true;
+  programs.direnv.enable = true;
   programs.fzf.enable = true;
   programs.jq.enable = true;
   programs.pandoc.enable = true;
