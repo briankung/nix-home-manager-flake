@@ -18,9 +18,5 @@ alias dl="cd ~/Downloads"
 alias play-nix="cd ~/.config/nixpkgs"
 alias wk="cd ~/Code"
 
-# Nix $PATH hackery, see:
-# https://github.com/DeterminateSystems/nix-installer/issues/327
-
-NIX_BIN_PATHS="/Users/brian/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
-export PATH="$NIX_BIN_PATHS:$LOCAL_BIN_PATHS:$PATH"
+export PATH="$LOCAL_BIN_PATHS:$PATH"
