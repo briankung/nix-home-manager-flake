@@ -15,10 +15,6 @@ source "$HOME/.nix-profile/google-cloud-sdk/path.zsh.inc"
 
 alias dcup="docker-compose up"
 alias dcdown="docker-compose down"
-
-alias wk="cd ~/Code/github/bractlet"
-alias dl="cd /Users/brian/Downloads"
-
 alias db="cd /Users/brian/Bractlet/db"
 alias 42="cd /Users/brian/Code/github/bractlet/forty-two"
 
