@@ -1,13 +1,6 @@
 # This is so annoying
 # ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
-# Prepend homebrew
-export PATH="/opt/homebrew/bin/:$PATH"
-# update $PATH for libpq (which includes psql)
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-# Cargo
-. "$HOME/.cargo/env"
-
 eval "$(direnv hook zsh)"
 
 # ☁️ google cloud sdk ☁️
