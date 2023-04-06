@@ -7,5 +7,9 @@ if [ -x "$(command -v starship)" ]; then
     source <(starship init zsh --print-full-init)
 fi
 
+if [ -x "$(command -v atuin)" ]; then
+    eval "$(atuin init zsh)"
+fi
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
