@@ -28,7 +28,7 @@
       # Directory navigation helpers
       dl = "cd ~/Downloads";
       play-nix = "cd ~/.config/nixpkgs";
-      wk = "cd $(fd . $HOME/Code --type=d | fzf)";
+      wk = "cd $(fd . $HOME/Code --type=d --follow | fzf)";
 
       # Git aliases
       gs = "git status";
