@@ -23,8 +23,24 @@
 
   programs.zsh = {
     enable = true;
-    initExtra =
-      builtins.readFile ./zshrc;
+    initExtra = builtins.readFile ./zshrc;
+    shellAliases = {
+      # Directory navigation helpers
+      dl = "cd ~/Downloads";
+      play-nix = "cd ~/.config/nixpkgs";
+
+      # Git aliases
+      gs = "git status";
+      gb = "git branch";
+      gd = "git diff";
+      gdc = "git diff --staged";
+      ga = "git add";
+      gp = "git push";
+      gap = "git add -p";
+      gl = "git log";
+      gc = "git commit";
+    };
+
   };
 
   programs.atuin.enable = true;
