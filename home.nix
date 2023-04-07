@@ -56,9 +56,11 @@
     pkgs.coreutils
     pkgs.dua
     pkgs.fd
+    pkgs.ffmpeg_5-full
     pkgs.fortune
     pkgs.gnused
     pkgs.htop
+    pkgs.imagemagick
     pkgs.libiconv
     pkgs.nix-bash-completions
     pkgs.nixfmt
