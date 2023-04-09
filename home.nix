@@ -47,6 +47,7 @@
   programs.bat.enable = true;
   programs.direnv.enable = true;
   programs.fzf.enable = true;
+  programs.helix.enable = true;
   programs.jq.enable = true;
   programs.pandoc.enable = true;
   programs.starship.enable = true;
