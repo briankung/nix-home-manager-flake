@@ -61,6 +61,7 @@
     pkgs.fortune
     pkgs.gnused
     pkgs.htop
+    pkgs.hyperfine
     pkgs.imagemagick
     pkgs.libiconv
     pkgs.nix-bash-completions
