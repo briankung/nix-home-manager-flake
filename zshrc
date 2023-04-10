@@ -15,5 +15,9 @@ if [ -x "$(command -v sccache)" ]; then
     export RUSTC_WRAPPER="$(command -v sccache)";
 fi
 
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook zsh)"
+fi
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
