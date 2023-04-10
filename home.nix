@@ -32,7 +32,7 @@
 
       # Git aliases
       gs = "git status";
-      gb = "git branch";
+      gb = "git checkout $(git branch --format='%(refname:short)' | fzf)";
       gd = "git diff";
       gdc = "git diff --staged";
       ga = "git add";
