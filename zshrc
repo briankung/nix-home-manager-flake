@@ -8,7 +8,7 @@ if [ -x "$(command -v starship)" ]; then
 fi
 
 if [ -x "$(command -v atuin)" ]; then
-    eval "$(atuin init zsh)"
+    eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 if [ -x "$(command -v sccache)" ]; then
