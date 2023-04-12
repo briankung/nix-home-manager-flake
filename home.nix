@@ -41,6 +41,7 @@
       gap = "git add -p";
       gl = "git log";
       gc = "git commit";
+      html-formatter = "tidy -indent --indent-spaces 2 -quiet --show-body-only yes";
     };
   };
 
@@ -61,6 +62,7 @@
     pkgs.ffmpeg_5-full
     pkgs.fortune
     pkgs.gnused
+    pkgs.html-tidy
     pkgs.htop
     pkgs.hyperfine
     pkgs.imagemagick
