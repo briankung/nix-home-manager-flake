@@ -19,5 +19,11 @@ if [ -x "$(command -v direnv)" ]; then
     eval "$(direnv hook zsh)"
 fi
 
+function gclo() {
+    local URI="$1";
+    local REPO=$(echo "$URI" | rg 'github\.com[:/](.+)\.git' -or '$1');
+    git clone "git@github.com:$REPO" "$REPO";
+}
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
