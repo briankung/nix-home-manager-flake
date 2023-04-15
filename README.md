@@ -8,10 +8,15 @@
 2. `cd ~/.config`
 3. `git clone git@github.com:briankung/nix-home-manager-flake.git nixpkgs`
 4. `cd nixpkgs`
-3. Run `nix run . && home-manager switch -b bak`
+5. On first run home-manager isn't available, so you can use `nix run .#homeConfigurations.<homeConfiguration name>.activationPackage`. That may or may not work since you also need to source the `~/.zshrc` file and if one exists you'll need to pass the `-b / --backup <some file extension>` to `home-manager` as well.
 
-In the future just `nix run . && home-manager switch`
+    Ex: `nix run .#homeConfigurations.foundation.activationPackage`.
+    Alternative example: `nix run . && home-manager switch --flake .#foundation -b bak`
+6. Second runs are easier: `home-manager switch --flake .#<homeConfiguration name>`.
 
-TODO: What does `nix run .` do vs `home-manager switch`?
+    Ex: `home-manager switch --flake .#foundation`
+7. Source your updated ~/.zshrc file
 
-Update with `nix flake update && home-manager switch`
+    Ex: `. ~/.zshrc`
+
+Update dependencies with `nix flake update`
