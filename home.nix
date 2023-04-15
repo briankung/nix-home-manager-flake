@@ -45,6 +45,39 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+
+    matchBlocks = {
+      github = {
+        host = "*.github.com";
+        identityFile = "~/.ssh/id_ed25519";
+
+        extraOptions = {
+          AddKeysToAgent = "yes";
+        };
+      };
+
+      foundation = {
+        host = "foundation";
+        hostname = "foundation.local";
+        user = "brian";
+      };
+
+      obsidian = {
+        host = "obsidian";
+        hostname = "obsidian.local";
+        user = "brian";
+      };
+
+      platinum = {
+        host = "platinum";
+        hostname = "platinum.local";
+        user = "brian";
+      };
+    };
+  };
+
   programs.atuin.enable = true;
   programs.bat.enable = true;
   programs.direnv.enable = true;
