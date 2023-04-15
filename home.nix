@@ -25,6 +25,9 @@
     enable = true;
     initExtra = builtins.readFile ./zshrc;
     shellAliases = {
+      # Default utils overrides
+      cat = "bat";
+
       # Directory navigation helpers
       dl = "cd ~/Downloads";
       play-nix = "cd ~/.config/nixpkgs";
@@ -41,6 +44,8 @@
       gap = "git add -p";
       gl = "git log";
       gc = "git commit";
+
+      # miscellaneous
       html-formatter = "tidy -indent --indent-spaces 2 -quiet --show-body-only yes";
     };
   };
