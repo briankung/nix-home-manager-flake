@@ -54,15 +54,6 @@
     enable = true;
 
     matchBlocks = {
-      github = {
-        host = "*.github.com";
-        identityFile = "~/.ssh/id_ed25519";
-
-        extraOptions = {
-          AddKeysToAgent = "yes";
-        };
-      };
-
       foundation = {
         host = "foundation";
         hostname = "foundation.local";
@@ -80,6 +71,12 @@
         hostname = "platinum.local";
         user = "brian";
       };
+    };
+
+    extraOptionOverrides = {
+      AddKeysToAgent = "yes";
+      UseKeychain = "yes";
+      IdentityFile = "~/.ssh/id_ed25519";
     };
   };
 
