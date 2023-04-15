@@ -83,8 +83,14 @@
     };
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Monokai Extended";
+    };
+  };
+
   programs.atuin.enable = true;
-  programs.bat.enable = true;
   programs.direnv.enable = true;
   programs.fzf.enable = true;
   programs.helix.enable = true;
