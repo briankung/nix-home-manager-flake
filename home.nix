@@ -98,6 +98,7 @@
 
   home.packages = [
     pkgs.coreutils
+    pkgs.detect-secrets
     pkgs.dua
     pkgs.fd
     pkgs.ffmpeg_5-full
