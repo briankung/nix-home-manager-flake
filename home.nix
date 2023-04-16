@@ -108,6 +108,7 @@
     pkgs.hyperfine
     pkgs.imagemagick
     pkgs.libiconv
+    pkgs.mediainfo
     pkgs.nix-bash-completions
     pkgs.nixfmt
     pkgs.nodePackages.sql-formatter
