@@ -25,5 +25,9 @@ function gclo() {
     git clone "git@github.com:$REPO" "$REPO";
 }
 
+function yt-dlp-playlist() {
+  yt-dlp --all-subs -o "%(playlist)s [%(playlist_id)s]/%(playlist_index)s - %(title).150s - [%(id)s].%(ext)s" "$1";
+}
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
