@@ -17,8 +17,6 @@ fi
 
 alias dcup="docker-compose up"
 alias dcdown="docker-compose down"
-alias db="cd /Users/brian/Code/github/bractlet/db"
-alias 42="cd /Users/brian/Code/github/bractlet/forty-two"
 
 ##### FUNCTIONS ####
 
