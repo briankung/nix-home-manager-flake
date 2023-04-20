@@ -46,7 +46,8 @@
       gc = "git commit";
 
       # miscellaneous
-      html-formatter = "tidy -indent --indent-spaces 2 -quiet --show-body-only yes";
+      html-formatter =
+        "tidy -indent --indent-spaces 2 -quiet --show-body-only yes";
     };
   };
 
@@ -82,9 +83,7 @@
 
   programs.bat = {
     enable = true;
-    config = {
-      theme = "Monokai Extended";
-    };
+    config = { theme = "Monokai Extended"; };
   };
 
   programs.atuin.enable = true;
