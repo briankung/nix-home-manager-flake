@@ -27,7 +27,7 @@
       homeConfigurations = {
         "platinum" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          modules = [ ./home.nix ];
+          modules = [ ./home.nix ./ruby.nix ];
         };
 
         "obsidian" = home-manager.lib.homeManagerConfiguration {
@@ -37,7 +37,7 @@
 
         "foundation" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-          modules = [ ./home.nix ];
+          modules = [ ./home.nix ./ruby.nix ];
         };
 
         # "???" = withArch "aarch64-linux";

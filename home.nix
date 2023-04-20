@@ -117,7 +117,6 @@
     pkgs.ponysay
     pkgs.ripgrep
     pkgs.rsync
-    pkgs.ruby_3_1
     pkgs.sccache
     pkgs.tree
     pkgs.wget
