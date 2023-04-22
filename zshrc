@@ -25,6 +25,13 @@ function gclo() {
     git clone "git@github.com:$REPO" "$REPO";
 }
 
+# For Syncthing, which is installed via the GitHub release and configured to
+# sync $HOME/Sync across all machines
+function sync-local() {
+    local file="$1";
+    mv "$file" $HOME/Sync
+}
+
 function yt-dlp-playlist() {
   yt-dlp --all-subs -o "%(playlist)s [%(playlist_id)s]/%(playlist_index)s - %(title).150s - [%(id)s].%(ext)s" "$1";
 }
