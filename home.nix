@@ -111,6 +111,7 @@
     pkgs.mediainfo
     pkgs.nix-bash-completions
     pkgs.nixfmt
+    pkgs.nmap
     pkgs.nodePackages.sql-formatter
     pkgs.nodePackages_latest.mermaid-cli
     pkgs.nodePackages_latest.typescript-language-server
