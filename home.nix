@@ -109,6 +109,7 @@
     pkgs.imagemagick
     pkgs.libiconv
     pkgs.mediainfo
+    pkgs.nil
     pkgs.nix-bash-completions
     pkgs.nixfmt
     pkgs.nmap
