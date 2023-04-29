@@ -48,6 +48,7 @@
       # miscellaneous
       html-formatter =
         "tidy -indent --indent-spaces 2 -quiet --show-body-only yes";
+      qr="qrencode -m 2 -t utf8";
     };
   };
 
@@ -122,6 +123,7 @@
     pkgs.sccache
     pkgs.tree
     pkgs.wget
+    pkgs.qrencode
     pkgs.zbar
   ];
 }
