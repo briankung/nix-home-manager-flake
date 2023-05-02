@@ -28,8 +28,13 @@ function gclo() {
 # For Syncthing, which is installed via the GitHub release and configured to
 # sync $HOME/Sync across all machines
 function sync-local() {
-    local file="$1";
-    mv "$file" $HOME/Sync
+    local FILE="$1";
+    mv "$FILE" $HOME/Sync
+}
+
+function code-fzf() {
+    local DIR=$1
+    code $(fd -td . $DIR | fzf)
 }
 
 function yt-dlp-playlist() {
