@@ -3,19 +3,19 @@
 
 # Enable starship
 ## Taken from https://stackoverflow.com/a/677212/1042144
-if ! command -v starship; then
+if command -v starship 2>&1; then
     source <(starship init zsh --print-full-init)
 fi
 
-if ! command -v atuin; then
+if command -v atuin 2>&1; then
     eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-if ! command -v sccache; then
+if command -v sccache 2>&1; then
     export RUSTC_WRAPPER="$(command -v sccache)";
 fi
 
-if ! command -v direnv; then
+if command -v direnv 2>&1; then
     eval "$(direnv hook zsh)"
 fi
 
