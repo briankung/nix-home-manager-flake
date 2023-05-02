@@ -48,7 +48,7 @@
       # miscellaneous
       html-formatter =
         "tidy -indent --indent-spaces 2 -quiet --show-body-only yes";
-      qr="qrencode -m 2 -t utf8";
+      qr = "qrencode -m 2 -t utf8";
     };
   };
 
@@ -121,6 +121,7 @@
     pkgs.ripgrep
     pkgs.rsync
     pkgs.sccache
+    pkgs.shellcheck
     pkgs.tree
     pkgs.wget
     pkgs.qrencode
