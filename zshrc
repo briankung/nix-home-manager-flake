@@ -33,7 +33,8 @@ function sync-local() {
 }
 
 function code-fzf() {
-    local DIR=$1
+    # Set to default value if no argument provided
+    local DIR="${1:-$HOME/Code}"
     code $(fd -td . $DIR | fzf)
 }
 
