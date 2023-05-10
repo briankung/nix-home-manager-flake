@@ -4,5 +4,9 @@
   programs.zsh.initExtra =
     lib.mkForce ((builtins.readFile ./zshrc) + (builtins.readFile ./wk-zshrc));
 
-  home.packages = lib.mkAfter [ pkgs.google-cloud-sdk pkgs.heroku ];
+  home.packages = lib.mkAfter [
+    pkgs.google-cloud-sdk
+    pkgs.heroku
+    pkgs.openapi-generator-cli
+  ];
 }
