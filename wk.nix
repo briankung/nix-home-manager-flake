@@ -7,6 +7,7 @@
   home.packages = lib.mkAfter [
     pkgs.google-cloud-sdk
     pkgs.heroku
+    pkgs.kustomize
     pkgs.openapi-generator-cli
   ];
 }
