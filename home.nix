@@ -50,7 +50,7 @@
         "tidy -indent --indent-spaces 2 -quiet --show-body-only yes";
       qr = "qrencode -m 2 -t utf8";
       emoji =
-        "curl -s 'http://www.unicode.org/Public/emoji/1.0/emoji-data.txt' | rg -v '^#' | rg '\\((.)\\)' -or '$1' | shuf -n1";
+        "curl -s 'http://www.unicode.org/Public/emoji/1.0/emoji-data.txt' | rg -v '^#' | rg '\\((.)\\)' -or '$1' | shuf -n1 | tr -d '\\n'";
     };
   };
 
