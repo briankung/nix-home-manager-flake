@@ -89,6 +89,13 @@
     config = { theme = "Monokai Extended"; };
   };
 
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+    git = true;
+    # icons = true;
+  };
+
   programs.atuin.enable = true;
   programs.direnv.enable = true;
   programs.fzf.enable = true;
