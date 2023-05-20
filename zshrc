@@ -29,7 +29,7 @@ function gclo() {
 # sync $HOME/Sync across all machines
 function sync-local() {
     local FILE="$1";
-    mv "$FILE" $HOME/Sync
+    cp "$FILE" $HOME/Sync
 }
 
 function code-fzf() {
