@@ -3,6 +3,7 @@
   home.homeDirectory = "/Users/brian";
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
+  fonts.fontconfig.enable = true;
 
   programs.git = {
     enable = true;
@@ -93,7 +94,7 @@
     enable = true;
     enableAliases = true;
     git = true;
-    # icons = true;
+    icons = true;
   };
 
   programs.atuin.enable = true;
@@ -106,6 +107,9 @@
   programs.yt-dlp.enable = true;
 
   home.packages = [
+    (pkgs.nerdfonts.override {
+      fonts = [ "FiraCode" "DroidSansMono" "Meslo" ];
+    })
     pkgs.coreutils
     pkgs.detect-secrets
     pkgs.dua
