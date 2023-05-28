@@ -10,8 +10,7 @@ default:
     fi
     just --list --color never
 
-# Initial setup for a new system. Most likely to break due to lack of use. Also
-# probably won't have just available, but eh
+# Initial setup for a new system. Most likely to break due to lack of use. Also probably won't have just available, but eh
 setup:
     nix run.#homeConfigurations.{{ HOSTNAME }}.activationPackage
 
@@ -19,9 +18,7 @@ setup:
 update:
     nix flake update .
 
-# Reload after configuration changes. Recommended use: `just reload && .
-# ~/.zshrc` because just can't source other script files for the parent shell
-# session
+# Reload after configuration changes. Recommended use: `just reload && . ~/.zshrc` because just can't source other script files for the parent shell session
 reload:
     home-manager switch --flake .#{{ HOSTNAME }}
 
