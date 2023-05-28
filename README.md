@@ -19,4 +19,4 @@
 
     Ex: `. ~/.zshrc`
 
-Update dependencies with `nix flake update`
+Update dependencies with `nix flake update .`
