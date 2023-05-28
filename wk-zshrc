@@ -1,5 +1,4 @@
-# This is so annoying
-# ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+#!/usr/bin/env zsh
 
 # ☁️ google cloud sdk ☁️
 source "$HOME/.nix-profile/google-cloud-sdk/path.zsh.inc"
