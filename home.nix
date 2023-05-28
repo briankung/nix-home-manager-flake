@@ -124,6 +124,7 @@
     pkgs.htop
     pkgs.hyperfine
     pkgs.imagemagick
+    pkgs.just
     pkgs.libiconv
     pkgs.mediainfo
     pkgs.nil
