@@ -19,7 +19,9 @@ setup:
 update:
     nix flake update .
 
-# Reload after configuration changes
+# Reload after configuration changes. Recommended use: `just reload && .
+# ~/.zshrc` because just can't source other script files for the parent shell
+# session
 reload:
     home-manager switch --flake .#{{ HOSTNAME }}
 
