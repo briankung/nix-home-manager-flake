@@ -20,3 +20,7 @@
     Ex: `. ~/.zshrc`
 
 Update dependencies with `nix flake update .`
+
+## Justfile
+
+You can also use [`just`](https://github.com/casey/just) to run common commands. Running `just` by itself will output this readme and the available recipes.
