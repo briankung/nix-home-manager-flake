@@ -19,6 +19,7 @@
       co = "checkout";
       cleanbr =
         "!git remote prune origin && git co master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d && git co -";
+      sweep = "clean -fd";
     };
   };
 
