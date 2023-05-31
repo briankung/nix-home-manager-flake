@@ -4,6 +4,11 @@
   programs.zsh.initExtra =
     lib.mkForce ((builtins.readFile ./zshrc) + (builtins.readFile ./wk-zshrc));
 
+  programs.zsh.sessionVariables = lib.mkForce {
+    BPN_JWT_ROLE = "admin";
+    BPN_JWT_USER_ID = "1219";
+  };
+
   home.packages = lib.mkAfter [
     pkgs.google-cloud-sdk
     pkgs.heroku
