@@ -28,6 +28,10 @@ db-mearas() {
     docker exec -it db-postgres-1 psql "postgresql://postgres:docker@0.0.0.0/mearas_development"
 }
 
+db-ts() {
+    docker exec -it db-postgres-tenants-and-spaces-1 psql "postgresql://postgres:docker@0.0.0.0:5432"
+}
+
 grep-mearas() {
     (
         cd /Users/brian/Code/github/briankung-bpn/mearas-search;
@@ -36,8 +40,4 @@ grep-mearas() {
             column -s, -t | \
             cat -n;
     )
-}
-
-db-reporter() {
-    docker exec -it reporter-report-db-1 psql "postgresql://postgres:docker@0.0.0.0:5432"
 }
