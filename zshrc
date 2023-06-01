@@ -1,18 +1,12 @@
 # Enable Cargo
 . "$HOME/.cargo/env"
 
-# Enable starship
-## Taken from https://stackoverflow.com/a/677212/1042144
-if command -v starship >/dev/null 2>&1; then
-    source <(starship init zsh --print-full-init)
-fi
-
 if command -v atuin >/dev/null 2>&1; then
     eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-if command -v sccache >/dev/null 2>&1; then
-    export RUSTC_WRAPPER="$(command -v sccache)";
+if command -v bat >/dev/null 2>&1; then
+    eval "alias cat=bat"
 fi
 
 if command -v direnv >/dev/null 2>&1; then
@@ -21,6 +15,16 @@ fi
 
 if command -v rbenv >/dev/null 2>&1; then
     eval "$(rbenv init - zsh)"
+fi
+
+if command -v sccache >/dev/null 2>&1; then
+    export RUSTC_WRAPPER="$(command -v sccache)";
+fi
+
+# Enable starship
+## Taken from https://stackoverflow.com/a/677212/1042144
+if command -v starship >/dev/null 2>&1; then
+    source <(starship init zsh --print-full-init)
 fi
 
 function gclo() {

@@ -27,9 +27,6 @@
     enable = true;
     initExtra = builtins.readFile ./zshrc;
     shellAliases = {
-      # Default utils overrides
-      cat = "bat";
-
       # Directory navigation helpers
       dl = "cd ~/Downloads";
       play-nix = "cd ~/.config/nixpkgs";
