@@ -27,6 +27,8 @@
     enable = true;
     initExtra = builtins.readFile ./zshrc;
     shellAliases = {
+      glow = "cat";
+
       # Directory navigation helpers
       dl = "cd ~/Downloads";
       play-nix = "cd ~/.config/nixpkgs";
@@ -50,7 +52,7 @@
       qr = "qrencode -m 2 -t utf8";
       emoji =
         "curl -s 'http://www.unicode.org/Public/emoji/1.0/emoji-data.txt' | rg -v '^#' | rg '\\((.)\\)' -or '$1' | shuf -n1 | tr -d '\\n'";
-      "¿" = "glow -p $(fd -d1 readme\\.md)";
+      readme = "glow -p $(fd -d1 readme\\.md)";
     };
   };
 
