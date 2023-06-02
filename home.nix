@@ -117,6 +117,7 @@
     pkgs.fd
     pkgs.ffmpeg_5-full
     pkgs.fortune
+    pkgs.git-crypt
     pkgs.git-filter-repo
     pkgs.glow
     pkgs.gnused
