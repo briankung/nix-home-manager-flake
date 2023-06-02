@@ -14,5 +14,10 @@
     pkgs.heroku
     pkgs.kustomize
     pkgs.openapi-generator-cli
+    pkgs.postgresql
+    pkgs.git-crypt
+    pkgs.git-filter-repo
+    pkgs.nodePackages_latest.typescript-language-server
+
   ];
 }

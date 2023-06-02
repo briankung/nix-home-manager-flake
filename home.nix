@@ -108,17 +108,12 @@
   programs.yt-dlp.enable = true;
 
   home.packages = [
-    (pkgs.nerdfonts.override {
-      fonts = [ "FiraCode" "DroidSansMono" "Meslo" ];
-    })
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
     pkgs.coreutils
-    pkgs.detect-secrets
     pkgs.dua
     pkgs.fd
     pkgs.ffmpeg_5-full
     pkgs.fortune
-    pkgs.git-crypt
-    pkgs.git-filter-repo
     pkgs.glow
     pkgs.gnused
     pkgs.html-tidy
@@ -131,10 +126,7 @@
     pkgs.nil
     pkgs.nix-bash-completions
     pkgs.nixfmt
-    pkgs.nmap
     pkgs.nodePackages.sql-formatter
-    pkgs.nodePackages_latest.typescript-language-server
-    pkgs.ponysay
     pkgs.ripgrep
     pkgs.rsync
     pkgs.sccache
@@ -142,6 +134,6 @@
     pkgs.tree
     pkgs.wget
     pkgs.qrencode
-    pkgs.zbar
+    pkgs.zbar # bar code reader
   ];
 }
