@@ -45,6 +45,7 @@
       gap = "git add -p";
       gl = "git log";
       gc = "git commit";
+      ggf = "git-grep-files"; # Alias to a custom function in zshrc
 
       # miscellaneous
       html-formatter =

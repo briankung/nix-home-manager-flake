@@ -50,5 +50,25 @@ function yt-dlp-playlist() {
   yt-dlp --all-subs -o "%(playlist)s [%(playlist_id)s]/%(playlist_index)s - %(title).150s - [%(id)s].%(ext)s" "$1";
 }
 
+# Search git for log entries with a certain input and then display all the files
+# that were touched in those commits
+git-grep-files() {
+    if [ "$#" -lt 1 ]; then
+        echo "Search git for log entries with a certain input and then display all the files that were touched in those commits"
+        echo "No git grep regex supplied, exiting"
+        return 0
+    fi
+
+    git log \
+        -E \
+        --grep=$1 \
+        --pretty=format:'%h' |
+        xargs \
+        -I{} \
+        git show --pretty="" --name-only {} |
+        sort |
+        uniq
+}
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
