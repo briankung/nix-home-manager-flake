@@ -41,3 +41,8 @@ grep-mearas() {
             cat -n;
     )
 }
+
+jira() {
+    KEY="$1";
+    open "https://bractlet.atlassian.net/browse/$KEY"
+}
