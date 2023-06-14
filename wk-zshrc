@@ -29,7 +29,7 @@ db-mearas() {
 }
 
 db-ts() {
-    docker exec -it db-postgres-tenants-and-spaces-1 psql "postgresql://postgres:docker@0.0.0.0:5432"
+    docker exec -it db-postgres-tenants-and-spaces-1 psql "postgresql://postgres:docker@0.0.0.0:5432/tenants_and_spaces"
 }
 
 grep-mearas() {
