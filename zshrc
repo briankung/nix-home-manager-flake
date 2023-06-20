@@ -70,5 +70,14 @@ git-grep-files() {
         uniq
 }
 
+# make sure ccase is installed https://github.com/rutrum/ccase
+sc() {
+    if command -v ccase >/dev/null 2>&1; then
+        ccase -tsnake "$*"
+    else
+        echo "ccase is not installed: https://github.com/rutrum/ccase"
+    fi
+}
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
