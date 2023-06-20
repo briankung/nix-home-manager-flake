@@ -132,6 +132,7 @@
     pkgs.ripgrep
     pkgs.rsync
     pkgs.sccache
+    pkgs.schemaspy
     pkgs.shellcheck
     pkgs.tree
     pkgs.wget
