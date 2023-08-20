@@ -79,5 +79,10 @@ sc() {
     fi
 }
 
+# Sum a list of numbers, one per line
+sum() {
+    paste -s -d+ - | bc
+}
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
