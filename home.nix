@@ -134,6 +134,7 @@
     pkgs.sccache
     pkgs.schemaspy
     pkgs.shellcheck
+    pkgs.sqlcipher # for Signal desktop db
     pkgs.tree
     pkgs.wget
     pkgs.qrencode

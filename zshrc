@@ -84,5 +84,11 @@ sum() {
     paste -s -d+ - | bc
 }
 
+# $1 is the hex key to decode the db
+# $2 is the sql query to run
+querySignalDb() {
+    sqlcipher -json -header -readonly ~/Library/Application\ Support/Signal/sql/db.sqlite "pragma key = \"x'$1'\"; $2;" | jq
+}
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
