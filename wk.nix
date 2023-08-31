@@ -18,6 +18,6 @@
     pkgs.git-crypt
     pkgs.git-filter-repo
     pkgs.nodePackages_latest.typescript-language-server
-
+    pkgs.sshuttle
   ];
 }
