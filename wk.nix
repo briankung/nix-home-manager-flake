@@ -10,14 +10,14 @@
   };
 
   home.packages = lib.mkAfter [
+    pkgs.git-crypt
+    pkgs.git-filter-repo
     pkgs.google-cloud-sdk
     pkgs.heroku
     pkgs.kustomize
+    pkgs.nodePackages_latest.typescript-language-server
     pkgs.openapi-generator-cli
     pkgs.postgresql
-    pkgs.git-crypt
-    pkgs.git-filter-repo
-    pkgs.nodePackages_latest.typescript-language-server
     pkgs.sshuttle
   ];
 }
