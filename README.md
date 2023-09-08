@@ -21,6 +21,17 @@
 
 Update dependencies with `nix flake update .`
 
+## Troubleshooting
+
+[opening lock file '/nix/var/nix/profiles/per-user/root/home-manager.lock': No such file or directory · Issue #3734 · nix-community/home-manager](https://github.com/nix-community/home-manager/issues/3734)
+
+> > I'm on a Kali linux host, and I could solve this issue by doing:
+> >
+> >     mkdir -m 0755 -p /nix/var/nix/{profiles,gcroots}/per-user/$USER
+> >
+>
+> Similarly, the following worked for me: `sudo chown -R $USER:nixbld /nix/var/nix/profiles/per-user/$USER`
+
 ## Justfile
 
 You can also use [`just`](https://github.com/casey/just) to run common commands. Running `just` by itself will output this readme and the available recipes.
