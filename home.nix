@@ -93,6 +93,7 @@
     config = { theme = "Monokai Extended"; };
   };
 
+  # This is going to be deprecated and throw an error the next time nix flake update is run
   programs.exa = {
     enable = true;
     enableAliases = true;
