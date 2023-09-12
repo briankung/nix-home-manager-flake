@@ -136,6 +136,7 @@
     pkgs.shellcheck
     pkgs.sqlcipher # for Signal desktop db
     pkgs.tree
+    pkgs.watchexec
     pkgs.wget
     pkgs.qrencode
     pkgs.zbar # bar code reader
