@@ -12,7 +12,7 @@ default:
 
 # Initial setup for a new system. Most likely to break due to lack of use. Also probably won't have just available, but eh
 setup:
-    nix run.#homeConfigurations.'{{ HOSTNAME }}'.activationPackage
+    nix run .#homeConfigurations.'{{ HOSTNAME }}'.activationPackage
 
 # For updating packages, e.g. when Atuin complains about being out of date
 update:
