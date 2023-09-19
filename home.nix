@@ -55,6 +55,8 @@
       emoji =
         "curl -s 'http://www.unicode.org/Public/emoji/1.0/emoji-data.txt' | rg -v '^#' | rg '\\((.)\\)' -or '$1' | shuf -n1 | tr -d '\\n' | pbcopy";
       readme = "glow -p $(fd -d1 readme\\.md)";
+      ## Open modified files
+      mod = "code .  && code $(git status --porcelain | awk '{print $2}')";
     };
   };
 
