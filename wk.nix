@@ -16,7 +16,6 @@
     pkgs.heroku
     pkgs.kustomize
     pkgs.nodePackages_latest.typescript-language-server
-    pkgs.openapi-generator-cli
     pkgs.postgresql
     pkgs.sshuttle
   ];
