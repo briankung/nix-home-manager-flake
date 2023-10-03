@@ -14,6 +14,10 @@ echo "Setting up directories"
 sudo mkdir -m 0755 -p /nix/var/nix/{profiles,gcroots}/per-user/$USER
 sudo chown -R $USER:nixbld /nix/var/nix/profiles/per-user/$USER
 
+#
+echo "Set up nix"
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
 # Reinstall home-manager
 echo "Reinstalling home-manager"
 nix run ".#homeConfigurations.$(scutil --get LocalHostName).activationPackage"
