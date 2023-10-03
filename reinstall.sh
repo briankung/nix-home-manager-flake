@@ -18,4 +18,4 @@ sudo chown -R $USER:nixbld /nix/var/nix/profiles/per-user/$USER
 echo "Reinstalling home-manager"
 nix run ".#homeConfigurations.$(scutil --get LocalHostName).activationPackage"
 
-echo "Run \`. ~/.zshrc\` to load your nix environment"
+echo "\n\nRun \`. ~/.zshrc\` to load your nix environment"
