@@ -33,13 +33,7 @@ db-ts() {
 }
 
 grep-mearas() {
-    (
-        cd /Users/brian/Code/github/briankung-bpn/mearas-search;
-
-        rg "(^table_schema)|$@" -I <mearas_development_schema.csv | \
-            column -s, -t | \
-            cat -n;
-    )
+    rg "(^table_schema)|$@" -I < /Users/brian/Code/github/briankung-bpn/mearas-search/mearas_schema.csv | column -s, -t | cat -n
 }
 
 jira() {
