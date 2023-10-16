@@ -96,8 +96,7 @@
     config = { theme = "Monokai Extended"; };
   };
 
-  # This is going to be deprecated and throw an error the next time nix flake update is run
-  programs.exa = {
+  programs.eza = {
     enable = true;
     enableAliases = true;
     git = true;
