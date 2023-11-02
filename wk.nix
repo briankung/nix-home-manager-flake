@@ -18,7 +18,6 @@
     pkgs.nodePackages_latest.typescript-language-server
     pkgs.openjdk
     pkgs.sbt
-    pkgs.postgresql
     pkgs.sshuttle
   ];
 }
