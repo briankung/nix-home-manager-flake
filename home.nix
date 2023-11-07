@@ -131,6 +131,7 @@
     pkgs.nix-bash-completions
     pkgs.nixfmt
     pkgs.nodePackages.sql-formatter
+    pkgs.poppler_utils
     pkgs.postgresql
     pkgs.ripgrep
     pkgs.rsync
