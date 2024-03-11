@@ -131,7 +131,6 @@
     pkgs.nix-bash-completions
     pkgs.nixfmt
     pkgs.nodePackages.sql-formatter
-    pkgs.openjdk
     pkgs.poppler_utils
     pkgs.postgresql
     pkgs.ripgrep
