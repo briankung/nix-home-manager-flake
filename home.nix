@@ -96,12 +96,6 @@
     config = { theme = "Monokai Extended"; };
   };
 
-  programs.eza = {
-    enable = true;
-    enableAliases = true;
-    git = true;
-  };
-
   programs.atuin.enable = true;
   programs.direnv.enable = true;
   programs.fzf.enable = true;

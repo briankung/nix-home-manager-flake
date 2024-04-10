@@ -5,10 +5,6 @@ if command -v atuin >/dev/null 2>&1; then
     eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-if command -v bat >/dev/null 2>&1; then
-    eval "alias cat=bat"
-fi
-
 if command -v direnv >/dev/null 2>&1; then
     eval "$(direnv hook zsh)"
 fi
