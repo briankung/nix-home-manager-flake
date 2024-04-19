@@ -125,7 +125,7 @@
     pkgs.mediainfo
     pkgs.nil
     pkgs.nix-bash-completions
-    pkgs.nixfmt
+    pkgs.nixfmt-classic
     pkgs.nodePackages.sql-formatter
     pkgs.poppler_utils
     pkgs.postgresql
