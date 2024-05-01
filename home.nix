@@ -107,7 +107,6 @@
 
   home.packages = [
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
-    pkgs.adguardhome
     pkgs.adguardian
     pkgs.coreutils
     pkgs.dua
