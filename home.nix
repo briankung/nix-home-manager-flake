@@ -61,7 +61,7 @@
   };
 
   programs.ssh = {
-    enable = true;
+    enable = false;
 
     matchBlocks = {
       foundation = {
