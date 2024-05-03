@@ -28,8 +28,6 @@
     enable = true;
     initExtra = builtins.readFile ./zshrc;
     shellAliases = {
-      glow = "cat";
-
       # Directory navigation helpers
       dl = "cd ~/Downloads";
       play-nix = "cd ~/.config/nixpkgs";
@@ -57,6 +55,8 @@
       readme = "glow -p $(fd -d1 readme\\.md)";
       ## Open modified files
       mod = "code .  && code $(git status --porcelain | awk '{print $2}')";
+
+      www = "cd /Users/Shared/wwwroot/";
     };
   };
 
