@@ -43,7 +43,7 @@ function code-fzf() {
 }
 
 function yt-dlp-playlist() {
-  yt-dlp --all-subs -o "%(playlist)s [%(playlist_id)s]/%(playlist_index)s - %(title).150s - [%(id)s].%(ext)s" "$1";
+  yt-dlp --write-auto-subs --sub-lang en -o "%(playlist)s [%(playlist_id)s]/%(playlist_index)s - %(title).150s - [%(id)s].%(ext)s" "$1";
 }
 
 # Search git for log entries with a certain input and then display all the files
