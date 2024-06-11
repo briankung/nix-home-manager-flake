@@ -16,7 +16,7 @@ setup:
 
 # For updating packages, e.g. when Atuin complains about being out of date
 update:
-    nix flake update .
+    nix flake update --flake .
 
 # Reload after configuration changes. Recommended use: `just reload && . ~/.zshrc` because just can't source other script files for the parent shell session
 reload:
