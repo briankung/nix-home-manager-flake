@@ -109,6 +109,7 @@
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
     pkgs.adguardian
     pkgs.coreutils
+    pkgs.csvlens
     pkgs.dua
     pkgs.fd
     pkgs.ffmpeg_5-full
