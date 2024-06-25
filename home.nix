@@ -56,7 +56,7 @@
       ## Open modified files
       mod = "code .  && code $(git status --porcelain | awk '{print $2}')";
 
-      www = "cd /Users/Shared/wwwroot/";
+      go = "cd $(fd --exclude Library -td . ~/ | fzf)";
     };
   };
 
