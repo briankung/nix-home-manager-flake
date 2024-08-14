@@ -111,6 +111,7 @@
     pkgs.coreutils
     pkgs.csvlens
     pkgs.dua
+    pkgs.exiftool
     pkgs.fd
     pkgs.ffmpeg_5-full
     pkgs.fortune
