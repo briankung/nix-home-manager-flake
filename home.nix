@@ -113,7 +113,7 @@
     pkgs.dua
     pkgs.exiftool
     pkgs.fd
-    pkgs.ffmpeg_5-full
+    pkgs.ffmpeg_7-full
     pkgs.fortune
     pkgs.glow
     pkgs.gnused
