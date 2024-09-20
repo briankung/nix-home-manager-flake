@@ -1,0 +1,102 @@
+{
+  "entries": {
+    "cask": {
+      "vscodium": {
+        "version": "1.93.1.24256",
+        "options": {
+          "full_name": "vscodium"
+        }
+      },
+      "firefox": {
+        "version": "130.0.1",
+        "options": {
+          "full_name": "firefox"
+        }
+      },
+      "signal": {
+        "version": "7.25.0",
+        "options": {
+          "full_name": "signal"
+        }
+      },
+      "slack": {
+        "version": "4.40.128",
+        "options": {
+          "full_name": "slack"
+        }
+      },
+      "messenger": {
+        "version": "220.1.0.5.212",
+        "options": {
+          "full_name": "messenger"
+        }
+      },
+      "bitwarden": {
+        "version": "2024.9.0",
+        "options": {
+          "full_name": "bitwarden"
+        }
+      },
+      "google-chrome": {
+        "version": "129.0.6668.59",
+        "options": {
+          "full_name": "google-chrome"
+        }
+      },
+      "iterm2": {
+        "version": "3.5.5",
+        "options": {
+          "full_name": "iterm2"
+        }
+      },
+      "rectangle": {
+        "version": "0.83",
+        "options": {
+          "full_name": "rectangle"
+        }
+      },
+      "rocket": {
+        "version": "1.9.3,85",
+        "options": {
+          "full_name": "rocket"
+        }
+      },
+      "betterdisplay": {
+        "version": "3.0.5",
+        "options": {
+          "full_name": "betterdisplay"
+        }
+      },
+      "macwhisper": {
+        "version": "9.13,875",
+        "options": {
+          "full_name": "macwhisper"
+        }
+      },
+      "soundsource": {
+        "version": "5.7.0",
+        "options": {
+          "full_name": "soundsource"
+        }
+      },
+      "syncthing": {
+        "version": "1.27.12-1",
+        "options": {
+          "full_name": "syncthing"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "sequoia": {
+        "HOMEBREW_VERSION": "4.3.23",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "api",
+        "CLT": "15.3.0.0.1.1708646388",
+        "Xcode": "15.4",
+        "macOS": "15.0"
+      }
+    }
+  }
+}
