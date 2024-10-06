@@ -11,4 +11,7 @@ cask "signal"
 cask "slack"
 cask "soundsource"
 cask "syncthing"
+cask "tailscale"
 cask "vscodium"
+
+brew "rbenv"
