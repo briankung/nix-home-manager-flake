@@ -30,7 +30,7 @@
     shellAliases = {
       # Directory navigation helpers
       dl = "cd ~/Downloads";
-      play-nix = "cd ~/.config/nixpkgs";
+      play-nix = "cd ~/.config/nix";
       wk = "cd $(fd . $HOME/Code --type=d --follow | fzf)";
 
       # Git aliases
