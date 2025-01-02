@@ -86,5 +86,5 @@ querySignalDb() {
     sqlcipher -json -header -readonly ~/Library/Application\ Support/Signal/sql/db.sqlite "pragma key = \"x'$1'\"; $2;" | jq
 }
 
-LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin"
+LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin:~/.local/bin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
