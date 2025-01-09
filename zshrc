@@ -86,5 +86,10 @@ querySignalDb() {
     sqlcipher -json -header -readonly ~/Library/Application\ Support/Signal/sql/db.sqlite "pragma key = \"x'$1'\"; $2;" | jq
 }
 
+# Activate uv
+# Technically should be in wk-zshrc but I haven't wired it up yet + I
+# don't have a separate machine for work
+source $HOME/.local/bin/env
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin:~/.local/bin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
