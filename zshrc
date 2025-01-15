@@ -112,8 +112,8 @@ goticket() {
     fi
 }
 
-# Activate uv
-source $HOME/.local/bin/env
+# Activate uv if uv is initialized
+[[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin:~/.local/bin:/Users/$(whoami)/.local/bin"
 export PATH="$LOCAL_BIN_PATHS:$PATH"
