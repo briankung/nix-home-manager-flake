@@ -116,6 +116,7 @@
     pkgs.fd
     pkgs.ffmpeg_7-full
     pkgs.fortune
+    pkgs.git-crypt
     pkgs.glow
     pkgs.gnused
     pkgs.html-tidy
