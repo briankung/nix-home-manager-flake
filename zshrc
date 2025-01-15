@@ -86,9 +86,33 @@ querySignalDb() {
     sqlcipher -json -header -readonly ~/Library/Application\ Support/Signal/sql/db.sqlite "pragma key = \"x'$1'\"; $2;" | jq
 }
 
+# For quickly switching to a linear ticket
+goticket() {
+    local selected=$(
+      curl -s -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: $LINEAR_API_TOKEN" \
+        https://api.linear.app/graphql \
+        --data '{"query": "query { viewer { assignedIssues(first: 100) { nodes { identifier title state { name } priority createdAt } } } }"}' \
+        | jq -r '.data.viewer.assignedIssues.nodes[] | [.identifier, .state.name, .title] | @tsv' \
+        | fzf
+    )
+
+    if [[ -n "$selected" ]]; then
+        local branch_name=$(echo "brian/$selected" | cut -f1)
+
+        if git rev-parse --verify "$branch_name" >/dev/null 2>&1 || \
+           git rev-parse --verify "origin/$branch_name" >/dev/null 2>&1; then
+            git checkout "$branch_name"
+        else
+            git checkout -b "$branch_name"
+        fi
+    else
+        return 1
+    fi
+}
+
 # Activate uv
-# Technically should be in wk-zshrc but I haven't wired it up yet + I
-# don't have a separate machine for work
 source $HOME/.local/bin/env
 
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin:~/.local/bin:/Users/$(whoami)/.local/bin"
