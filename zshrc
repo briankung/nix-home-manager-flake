@@ -94,7 +94,7 @@ goticket() {
         -H "Authorization: $LINEAR_API_TOKEN" \
         https://api.linear.app/graphql \
         --data '{"query": "query { viewer { assignedIssues(first: 100) { nodes { identifier title state { name } priority createdAt } } } }"}' \
-        | jq -r '.data.viewer.assignedIssues.nodes[] | [.identifier, .state.name, .title] | @tsv' \
+        | jq -r '.data.viewer.assignedIssues.nodes | sort_by(.state.name) | reverse | .[] | [.identifier, .state.name, .title] | @tsv' \
         | fzf
     )
 
