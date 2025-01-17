@@ -105,6 +105,8 @@ goticket() {
            git rev-parse --verify "origin/$branch_name" >/dev/null 2>&1; then
             git checkout "$branch_name"
         else
+            git checkout stage
+            git pull
             git checkout -b "$branch_name"
         fi
     else
