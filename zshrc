@@ -86,6 +86,16 @@ querySignalDb() {
     sqlcipher -json -header -readonly ~/Library/Application\ Support/Signal/sql/db.sqlite "pragma key = \"x'$1'\"; $2;" | jq
 }
 
+showtickets() {
+    curl -s -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: $LINEAR_API_TOKEN" \
+        https://api.linear.app/graphql \
+        --data '{"query": "query { viewer { assignedIssues(first: 100) { nodes { identifier title state { name } priority createdAt } } } }"}' |
+        jq -r '.data.viewer.assignedIssues.nodes | sort_by(.state.name) | reverse | .[] | [.identifier, .state.name, .title] | @csv' |
+        xsv table
+}
+
 # For quickly switching to a linear ticket
 goticket() {
     local selected=$(
@@ -93,9 +103,9 @@ goticket() {
         -H "Content-Type: application/json" \
         -H "Authorization: $LINEAR_API_TOKEN" \
         https://api.linear.app/graphql \
-        --data '{"query": "query { viewer { assignedIssues(first: 100) { nodes { identifier title state { name } priority createdAt } } } }"}' \
-        | jq -r '.data.viewer.assignedIssues.nodes | sort_by(.state.name) | reverse | .[] | [.identifier, .state.name, .title] | @tsv' \
-        | fzf
+        --data '{"query": "query { viewer { assignedIssues(first: 100) { nodes { identifier title state { name } priority createdAt } } } }"}' |
+        jq -r '.data.viewer.assignedIssues.nodes | sort_by(.state.name) | reverse | .[] | [.identifier, .state.name, .title] | @tsv' |
+        fzf
     )
 
     if [[ -n "$selected" ]]; then
