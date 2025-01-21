@@ -144,6 +144,7 @@
     pkgs.watchexec
     pkgs.wget
     pkgs.qrencode
+    pkgs.xsv
     pkgs.zbar # bar code reader
   ];
 }
