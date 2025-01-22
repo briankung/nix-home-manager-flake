@@ -23,6 +23,10 @@ if command -v starship >/dev/null 2>&1; then
     source <(starship init zsh --print-full-init)
 fi
 
+if command -v codium >/dev/null 2>&1; then
+    alias code=codium
+fi
+
 function gclo() {
     local URI="$1";
     local REPO=$(echo "$URI" | rg 'github\.com[:/](.+)\.git' -or '$1');
@@ -112,7 +116,7 @@ goticket() {
         local branch_name=$(echo "brian/$selected" | cut -f1)
 
         if git rev-parse --verify "$branch_name" >/dev/null 2>&1 || \
-           git rev-parse --verify "origin/$branch_name" >/dev/null 2>&1; then
+            git rev-parse --verify "origin/$branch_name" >/dev/null 2>&1; then
             git checkout "$branch_name"
         else
             git checkout stage
