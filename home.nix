@@ -45,6 +45,8 @@
       gl = "git log";
       gc = "git commit";
       ggf = "git-grep-files"; # Alias to a custom function in zshrc
+      st = "git stash";
+      pop = "git stash pop";
 
       # miscellaneous
       html-formatter =
