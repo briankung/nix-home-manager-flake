@@ -99,6 +99,7 @@ showtickets() {
         jq -r '.data.viewer.assignedIssues.nodes | sort_by(.state.name) | reverse | .[] | [.identifier, .state.name, .title] | @csv' |
         xsv table
 }
+alias shot="showtickets"
 
 # For quickly switching to a linear ticket
 goticket() {
@@ -127,6 +128,7 @@ goticket() {
         return 1
     fi
 }
+alias got="goticket"
 
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
