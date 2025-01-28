@@ -134,4 +134,10 @@ alias got="goticket"
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin:~/.local/bin:/Users/$(whoami)/.local/bin"
+
+CARGO_BIN_PATH="/Users/$(whoami)/.cargo/bin"
+if [[ -d $CARGO_BIN_PATH ]]; then
+    LOCAL_BIN_PATHS="$LOCAL_BIN_PATHS:$CARGO_BIN_PATH"
+fi
+
 export PATH="$LOCAL_BIN_PATHS:$PATH"
