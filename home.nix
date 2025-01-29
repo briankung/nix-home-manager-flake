@@ -46,6 +46,7 @@
       gc = "git commit";
       ggf = "git-grep-files"; # Alias to a custom function in zshrc
       st = "git stash";
+      stl = "git stash list";
       pop = "git stash pop";
       gcane = "git commit --amend --no-edit";
 
