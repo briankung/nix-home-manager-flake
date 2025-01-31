@@ -27,6 +27,10 @@ if command -v codium >/dev/null 2>&1; then
     alias code=codium
 fi
 
+if command -v /Users/brian/.codeium/windsurf/bin/windsurf >/dev/null 2>&1; then
+    alias ws=/Users/brian/.codeium/windsurf/bin/windsurf
+fi
+
 function gclo() {
     local URI="$1";
     local REPO=$(echo "$URI" | rg 'github\.com[:/](.+)\.git' -or '$1');
