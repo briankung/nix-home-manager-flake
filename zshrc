@@ -105,6 +105,12 @@ showtickets() {
 }
 alias shot="showtickets"
 
+# As in "what am I working on again + maximum derp"
+wat() {
+    local ticket="$(git branch --show-current | rg 'brian/(.+)' -or '$1')"
+    showtickets | rg $ticket
+}
+
 # For quickly switching to a linear ticket
 goticket() {
     local selected=$(
