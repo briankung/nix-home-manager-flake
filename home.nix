@@ -120,6 +120,7 @@
     pkgs.fd
     pkgs.ffmpeg_7-full
     pkgs.fortune
+    pkgs.ghostscript
     pkgs.git-crypt
     pkgs.glow
     pkgs.gnused
