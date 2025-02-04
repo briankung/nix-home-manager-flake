@@ -99,8 +99,35 @@ showtickets() {
         -H "Content-Type: application/json" \
         -H "Authorization: $LINEAR_API_TOKEN" \
         https://api.linear.app/graphql \
-        --data '{"query": "query { viewer { assignedIssues(first: 100) { nodes { identifier title state { name } priority createdAt } } } }"}' |
-        jq -r '.data.viewer.assignedIssues.nodes | sort_by(.state.name) | reverse | .[] | [.identifier, .state.name, .title] | @csv' |
+        --data @- <<'EOF' |
+{
+  "query": "query {
+    viewer {
+      assignedIssues(first: 100) {
+        nodes {
+          identifier
+          title
+          state {
+            name
+          }
+          estimate
+          priority
+          createdAt
+        }
+      }
+    }
+  }"
+}
+EOF
+        jq -r --from-file <(cat <<'JQ'
+.data.viewer.assignedIssues.nodes
+| sort_by(.state.name)
+| reverse
+| .[]
+| [.identifier, .state.name, (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end), .title]
+| @csv
+JQ
+        ) |
         xsv table
 }
 alias shot="showtickets"
@@ -118,8 +145,35 @@ goticket() {
         -H "Content-Type: application/json" \
         -H "Authorization: $LINEAR_API_TOKEN" \
         https://api.linear.app/graphql \
-        --data '{"query": "query { viewer { assignedIssues(first: 100) { nodes { identifier title state { name } priority createdAt } } } }"}' |
-        jq -r '.data.viewer.assignedIssues.nodes | sort_by(.state.name) | reverse | .[] | [.identifier, .state.name, .title] | @tsv' |
+        --data @- <<'EOF' |
+{
+  "query": "query {
+    viewer {
+      assignedIssues(first: 100) {
+        nodes {
+          identifier
+          title
+          state {
+            name
+          }
+          estimate
+          priority
+          createdAt
+        }
+      }
+    }
+  }"
+}
+EOF
+        jq -r --from-file <(cat <<'JQ'
+.data.viewer.assignedIssues.nodes
+| sort_by(.state.name)
+| reverse
+| .[]
+| [.identifier, .state.name, (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end), .title]
+| @tsv
+JQ
+        ) |
         fzf
     )
 
