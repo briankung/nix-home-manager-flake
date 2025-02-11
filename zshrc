@@ -113,6 +113,7 @@ showtickets() {
           estimate
           priority
           createdAt
+          updatedAt
         }
       }
     }
@@ -121,10 +122,15 @@ showtickets() {
 EOF
         jq -r --from-file <(cat <<'JQ'
 .data.viewer.assignedIssues.nodes
-| sort_by(.state.name)
-| reverse
+| sort_by(.updatedAt)
 | .[]
-| [.identifier, .state.name, (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end), .title]
+| [
+    .identifier,
+    .state.name,
+    (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end),
+    .title,
+    .updatedAt[0:10]
+  ]
 | @csv
 JQ
         ) |
@@ -159,6 +165,7 @@ goticket() {
           estimate
           priority
           createdAt
+          updatedAt
         }
       }
     }
@@ -167,10 +174,15 @@ goticket() {
 EOF
         jq -r --from-file <(cat <<'JQ'
 .data.viewer.assignedIssues.nodes
-| sort_by(.state.name)
-| reverse
+| sort_by(.updatedAt)
 | .[]
-| [.identifier, .state.name, (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end), .title]
+| [
+    .identifier,
+    .state.name,
+    (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end),
+    .title,
+    .updatedAt[0:10]
+  ]
 | @tsv
 JQ
         ) |
