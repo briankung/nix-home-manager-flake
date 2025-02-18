@@ -128,7 +128,7 @@ EOF
     .identifier,
     .state.name,
     (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end),
-    .title,
+    .title[0:50],
     .updatedAt[0:10]
   ]
 | @csv
@@ -180,7 +180,7 @@ EOF
     .identifier,
     .state.name,
     (if .estimate then "✅ " + (.estimate|tostring) else "☑️ -" end),
-    .title,
+    .title[0:50],
     .updatedAt[0:10]
   ]
 | @tsv
