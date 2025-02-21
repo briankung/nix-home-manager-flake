@@ -62,6 +62,7 @@
       shuo = "say -v TingTing";
 
       go = "cd $(fd --exclude Library -td . ~/ | fzf)";
+      cri = "crystal i";
     };
   };
 
