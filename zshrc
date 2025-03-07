@@ -206,6 +206,11 @@ JQ
 }
 alias got="goticket"
 
+hardpull() {
+  local head="$(git rev-parse --abbrev-ref HEAD)"
+  git reset --hard "origin/$head"
+}
+
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
