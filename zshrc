@@ -211,6 +211,14 @@ hardpull() {
   git reset --hard "origin/$head"
 }
 
+checkRebate() {
+  curl -s 'https://epa.illinois.gov/topics/ceja/electric-vehicle-rebates.html' \
+    | rg -A1 -m1 -i 'Non-Low Income Rebates Awarded' \
+    | rg -i '>([a-z0-9- ]+)<' -or '$1' \
+    | awk 'NR==1{printf "%s: ", $0} NR==2{print}' \
+    | xargs -I {} osascript -e 'display notification "{}" with title "Rebate Status"'
+}
+
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
