@@ -17,4 +17,7 @@ cask "tailscale"
 cask "vlc"
 cask "vscodium"
 
+brew "jj"
 brew "rbenv"
+brew "unison"
+brew "uv"
