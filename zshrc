@@ -31,25 +31,6 @@ if command -v /Users/brian/.codeium/windsurf/bin/windsurf >/dev/null 2>&1; then
     alias ws=/Users/brian/.codeium/windsurf/bin/windsurf
 fi
 
-function gclo() {
-    local URI="$1";
-    local REPO=$(echo "$URI" | rg 'github\.com[:/](.+)\.git' -or '$1');
-    git clone "git@github.com:$REPO" "$REPO";
-}
-
-# For Syncthing, which is installed via the GitHub release and configured to
-# sync $HOME/Sync across all machines
-function sync-local() {
-    local FILE="$1";
-    cp "$FILE" $HOME/Sync
-}
-
-function code-fzf() {
-    # Set to default value if no argument provided
-    local DIR="${1:-$HOME/Code}"
-    code $(fd -td . $DIR | fzf)
-}
-
 function yt-dlp-playlist() {
   yt-dlp --write-auto-subs --sub-lang en -o "%(playlist)s [%(playlist_id)s]/%(playlist_index)s - %(title).150s - [%(id)s].%(ext)s" "$1";
 }
@@ -211,12 +192,8 @@ hardpull() {
   git reset --hard "origin/$head"
 }
 
-checkRebate() {
-  curl -s 'https://epa.illinois.gov/topics/ceja/electric-vehicle-rebates.html' \
-    | rg -A1 -m1 -i 'Non-Low Income Rebates Awarded' \
-    | rg -i '>([a-z0-9- ]+)<' -or '$1' \
-    | awk 'NR==1{printf "%s: ", $0} NR==2{print}' \
-    | xargs -I {} osascript -e 'display notification "{}" with title "Rebate Status"'
+q:() {
+  ollama run "${OLLAMA_MODEL:-gemma3}" "You are a helpful assistant.\nAnswer this question.\nBe very brief.\n\n$*"
 }
 
 # Activate uv if uv is initialized
