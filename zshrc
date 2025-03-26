@@ -187,6 +187,35 @@ JQ
 }
 alias got="goticket"
 
+pbreduce () {
+  # Initialize variables
+  local clipboard=""
+  local separator=$'\n\n'
+
+  # Clear clipboard to start fresh
+  echo "" | pbcopy
+
+  # Setup trap to exit gracefully
+  trap "echo 'Exiting clipboard reducer'; return" INT TERM
+
+  echo "Clipboard reducer started. Press Ctrl+C to exit."
+  echo "Monitoring clipboard for changes..."
+
+  while true; do
+    current=$(pbpaste)
+    if [[ "$clipboard" != "$current" && -n "$current" ]]; then
+      if [[ -n "$clipboard" ]]; then
+        clipboard+="$separator$current"
+      else
+        clipboard="$current"
+      fi
+
+      echo "$clipboard" | pbcopy
+    fi
+  done
+}
+alias pbr="pbreduce"
+
 hardpull() {
   local head="$(git rev-parse --abbrev-ref HEAD)"
   git reset --hard "origin/$head"
