@@ -31,6 +31,12 @@ if command -v /Users/brian/.codeium/windsurf/bin/windsurf >/dev/null 2>&1; then
     alias ws=/Users/brian/.codeium/windsurf/bin/windsurf
 fi
 
+function gclo() {
+    local URI="$1";
+    local REPO=$(echo "$URI" | rg 'github\.com[:/](.+)(\.git)?' -or '$1');
+    git clone "git@github.com:$REPO" "$REPO";
+}
+
 function yt-dlp-playlist() {
   yt-dlp --write-auto-subs --sub-lang en -o "%(playlist)s [%(playlist_id)s]/%(playlist_index)s - %(title).150s - [%(id)s].%(ext)s" "$1";
 }
