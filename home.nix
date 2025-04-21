@@ -140,7 +140,6 @@
     pkgs.postgresql
     pkgs.ripgrep
     pkgs.rsync
-    pkgs.rustup
     pkgs.sccache
     pkgs.schemaspy
     pkgs.shellcheck
