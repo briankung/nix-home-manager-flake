@@ -228,7 +228,7 @@ hardpull() {
 }
 
 q:() {
-  ollama run "${OLLAMA_MODEL:-gemma3}" "You are a helpful assistant.\nAnswer this question.\nBe very brief.\n\n$*"
+  ollama run "${OLLAMA_MODEL:-gemma3:27b-it-qat}" "You are a helpful assistant.\nAnswer this question.\nBe very brief.\n\n$*"
 }
 
 # Activate uv if uv is initialized
