@@ -56,7 +56,7 @@
       qr = "qrencode -m 2 -t utf8";
       emoji =
         "curl -s 'http://www.unicode.org/Public/emoji/1.0/emoji-data.txt' | rg -v '^#' | rg '\\((.)\\)' -or '$1' | shuf -n1 | tr -d '\\n' | pbcopy";
-      readme = "glow -p $(fd -d1 readme\\.md)";
+      readme = "glow $(fd -d1 readme\\.md)";
       ## Open modified files
       mod = "code .  && code $(git status --porcelain | awk '{print $2}')";
       shuo = "say -v TingTing";
