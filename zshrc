@@ -242,3 +242,8 @@ if [[ -d $CARGO_BIN_PATH ]]; then
 fi
 
 export PATH="$LOCAL_BIN_PATHS:$PATH"
+
+# Set the title of the tab to the working directory
+precmd() {
+  print -n "\e]0;${PWD}\a"
+}
