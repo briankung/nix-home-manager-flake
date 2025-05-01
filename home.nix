@@ -123,6 +123,7 @@
     pkgs.fortune
     pkgs.ghostscript
     pkgs.git-crypt
+    pkgs.gitleaks
     pkgs.glow
     pkgs.gnused
     pkgs.html-tidy
