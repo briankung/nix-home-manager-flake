@@ -247,3 +247,5 @@ export PATH="$LOCAL_BIN_PATHS:$PATH"
 precmd() {
   print -n "\e]0;${PWD}\a"
 }
+
+export EDITOR='hx'
