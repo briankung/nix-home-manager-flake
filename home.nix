@@ -109,7 +109,6 @@
   programs.jq.enable = true;
   programs.pandoc.enable = true;
   programs.starship.enable = true;
-  programs.yt-dlp.enable = true;
 
   home.packages = [
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
