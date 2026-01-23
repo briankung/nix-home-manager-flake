@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.username = "brian";
   home.homeDirectory = "/Users/brian";
-  home.stateVersion = "23.05";
+  home.stateVersion = "25.11";
   programs.home-manager.enable = true;
   fonts.fontconfig.enable = true;
 
