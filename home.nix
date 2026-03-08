@@ -111,7 +111,7 @@
   programs.starship.enable = true;
 
   home.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Meslo" ]; })
+    (pkgs.nerd-fonts.override { fonts = [ "FiraCode" "Meslo" ]; })
     pkgs.adguardian
     pkgs.coreutils
     pkgs.csvlens
