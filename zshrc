@@ -248,4 +248,8 @@ precmd() {
   print -n "\e]0;${PWD}\a"
 }
 
+signalize() {
+  ffmpeg -i "$1" -c:v libx264 -c:a aac -movflags +faststart "signal.$1"
+}
+
 export EDITOR='hx'
