@@ -68,8 +68,18 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
 
     matchBlocks = {
+      "*" = {
+        extraOptions = {
+          IgnoreUnknown = "UseKeychain";
+          AddKeysToAgent = "yes";
+          UseKeychain = "yes";
+        };
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
       foundation = {
         host = "foundation";
         hostname = "foundation.local";
@@ -87,13 +97,6 @@
         hostname = "platinum.local";
         user = "brian";
       };
-    };
-
-    extraOptionOverrides = {
-      IgnoreUnknown = "UseKeychain";
-      AddKeysToAgent = "yes";
-      UseKeychain = "yes";
-      IdentityFile = "~/.ssh/id_ed25519";
     };
   };
 
@@ -117,7 +120,7 @@
 
     # Nix dev tools
     pkgs.nil
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
     pkgs.nix-bash-completions
 
     # Shell utilities
