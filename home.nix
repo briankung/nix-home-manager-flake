@@ -62,7 +62,6 @@
       shuo = "say -v TingTing";
 
       go = "cd $(fd --exclude Library -td . ~/ | fzf)";
-      claude = "~/.claude/local/claude";
       yolo = "claude --dangerously-skip-permissions";
     };
   };
