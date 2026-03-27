@@ -7,26 +7,26 @@
 
   programs.git = {
     enable = true;
-    userName = "Brian Kung";
-    userEmail = "github@briankung.xyz";
     ignores = [ "*~" ".DS_Store" ".direnv" ".env" ".rgignore" ];
-    extraConfig = {
+    settings = {
+      user.name = "Brian Kung";
+      user.email = "github@briankung.xyz";
       init = { defaultBranch = "main"; };
       pull = { ff = "only"; };
       push = { autoSetupRemote = true; };
-    };
-    aliases = {
-      co = "checkout";
-      clear = "!git reset . && git co . && git sweep";
-      cleanbr =
-        "!git remote prune origin && git co master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d && git co -";
-      sweep = "clean -fd";
+      alias = {
+        co = "checkout";
+        clear = "!git reset . && git co . && git sweep";
+        cleanbr =
+          "!git remote prune origin && git co master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d && git co -";
+        sweep = "clean -fd";
+      };
     };
   };
 
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./zshrc;
+    initContent = builtins.readFile ./zshrc;
     shellAliases = {
       # Directory navigation helpers
       dl = "cd ~/Downloads";
@@ -111,7 +111,8 @@
   programs.starship.enable = true;
 
   home.packages = [
-    (pkgs.nerd-fonts.override { fonts = [ "FiraCode" "Meslo" ]; })
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.meslo-lg
     pkgs.adguardian
     pkgs.coreutils
     pkgs.csvlens
@@ -134,9 +135,9 @@
     pkgs.mediainfo
     pkgs.nil
     pkgs.nix-bash-completions
-    pkgs.nixfmt-classic
+    pkgs.nixfmt-rfc-style
     pkgs.nodePackages.sql-formatter
-    pkgs.poppler_utils
+    pkgs.poppler-utils
     pkgs.postgresql
     pkgs.ripgrep
     pkgs.rsync
@@ -148,7 +149,7 @@
     pkgs.watchexec
     pkgs.wget
     pkgs.qrencode
-    pkgs.xsv
+    pkgs.qsv
     pkgs.zbar # bar code reader
   ];
 }
