@@ -12,10 +12,10 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      withArch = arch:
+      withArch = arch: modules:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${arch};
-          modules = [ ./home.nix ];
+          inherit modules;
         };
     in {
       defaultPackage = {
@@ -25,22 +25,10 @@
       };
 
       homeConfigurations = {
-        "platinum" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          modules = [ ./home.nix ];
-        };
-
-        "obsidian" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          modules = [ ./home.nix ./wk.nix ];
-        };
-
-        "foundation" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-          modules = [ ./home.nix ];
-        };
-
-        # "???" = withArch "aarch64-linux";
+        "platinum"  = withArch "aarch64-darwin"  [ ./home.nix ];
+        "obsidian"  = withArch "aarch64-darwin"  [ ./home.nix ./wk.nix ];
+        "foundation" = withArch "x86_64-darwin"  [ ./home.nix ];
+        # "???" = withArch "aarch64-linux" [ ./home.nix ];
       };
     };
 }
