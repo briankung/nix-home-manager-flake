@@ -63,11 +63,12 @@
 
       go = "cd $(fd --exclude Library -td . ~/ | fzf)";
       claude = "~/.claude/local/claude";
+      yolo = "claude --dangerously-skip-permissions";
     };
   };
 
   programs.ssh = {
-    enable = false;
+    enable = true;
 
     matchBlocks = {
       foundation = {
@@ -111,45 +112,58 @@
   programs.starship.enable = true;
 
   home.packages = [
+    # Fonts
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.meslo-lg
-    pkgs.adguardian
+
+    # Nix dev tools
+    pkgs.nil
+    pkgs.nixfmt-rfc-style
+    pkgs.nix-bash-completions
+
+    # Shell utilities
     pkgs.coreutils
-    pkgs.csvlens
-    pkgs.dua
-    pkgs.exiftool
     pkgs.fd
-    pkgs.ffmpeg_7-full
-    pkgs.fortune
-    pkgs.ghostscript
-    pkgs.git-crypt
-    pkgs.gitleaks
-    pkgs.glow
     pkgs.gnused
-    pkgs.html-tidy
     pkgs.htop
     pkgs.hyperfine
-    pkgs.imagemagick
     pkgs.just
-    pkgs.libiconv
-    pkgs.mediainfo
-    pkgs.nil
-    pkgs.nix-bash-completions
-    pkgs.nixfmt-rfc-style
-    pkgs.nodePackages.sql-formatter
-    pkgs.poppler-utils
-    pkgs.postgresql
     pkgs.ripgrep
     pkgs.rsync
-    pkgs.sccache
-    pkgs.schemaspy
-    pkgs.shellcheck
-    pkgs.sqlcipher # for Signal desktop db
     pkgs.tree
     pkgs.watchexec
     pkgs.wget
-    pkgs.qrencode
+
+    # Data / databases
+    pkgs.csvlens
+    pkgs.nodePackages.sql-formatter
+    pkgs.postgresql
     pkgs.qsv
+    pkgs.schemaspy
+    pkgs.sqlcipher # for Signal desktop db
+
+    # Media / documents
+    pkgs.dua
+    pkgs.exiftool
+    pkgs.ffmpeg_7-full
+    pkgs.ghostscript
+    pkgs.imagemagick
+    pkgs.mediainfo
+    pkgs.poppler-utils
+
+    # Security
+    pkgs.git-crypt
+    pkgs.gitleaks
+
+    # Misc
+    pkgs.adguardian
+    pkgs.fortune
+    pkgs.glow
+    pkgs.html-tidy
+    pkgs.libiconv
+    pkgs.qrencode
+    pkgs.sccache
+    pkgs.shellcheck
     pkgs.zbar # bar code reader
   ];
 }
