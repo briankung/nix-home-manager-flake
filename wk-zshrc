@@ -20,7 +20,7 @@ alias dcdown="docker-compose down"
 ##### FUNCTIONS ####
 
 play() {
-    cd /Users/brian/Code/local/play;
+    cd "$HOME/Code/local/play";
     code .;
 }
 
@@ -33,7 +33,7 @@ db-ts() {
 }
 
 grep-mearas() {
-    rg "(^table_schema)|$@" -I < /Users/brian/Code/github/briankung-bpn/mearas-search/mearas_schema.csv | column -s, -t | cat -n
+    rg "(^table_schema)|$@" -I < "$HOME/Code/github/briankung-bpn/mearas-search/mearas_schema.csv" | column -s, -t | cat -n
 }
 
 jira() {
