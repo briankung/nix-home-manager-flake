@@ -253,3 +253,5 @@ signalize() {
 }
 
 export EDITOR='hx'
+
+umask 0007
