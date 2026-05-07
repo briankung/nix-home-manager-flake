@@ -253,5 +253,6 @@ signalize() {
 }
 
 export EDITOR='hx'
+export SYMBOLICA_HOBBYIST_LICENSE_KEY="c90e7bfc#6a09a854#0a6fad8b-b04d-59fc-bae6-f979c856f551"
 
 umask 0007
