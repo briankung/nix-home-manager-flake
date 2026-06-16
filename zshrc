@@ -234,6 +234,9 @@ q:() {
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
+# Untracked secrets (API tokens, license keys) — not checked into git
+[[ -f "$HOME/.config/secrets.zsh" ]] && source "$HOME/.config/secrets.zsh"
+
 LOCAL_BIN_PATHS="/usr/local/bin:/usr/local/sbin:~/.local/bin:/Users/$(whoami)/.local/bin"
 
 CARGO_BIN_PATH="/Users/$(whoami)/.cargo/bin"
@@ -253,6 +256,5 @@ signalize() {
 }
 
 export EDITOR='hx'
-export SYMBOLICA_HOBBYIST_LICENSE_KEY="8d18b213#6bfc4839#0a6fad8b-b04d-59fc-bae6-f979c856f551"
 
 umask 0007
