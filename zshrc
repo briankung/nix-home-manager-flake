@@ -234,7 +234,7 @@ q:() {
 yolod() {
   env \
     ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic" \
-    ANTHROPIC_AUTH_TOKEN="${DEEPSEEK_API_KEY}" \
+    ANTHROPIC_API_KEY="${DEEPSEEK_API_KEY}" \
     ANTHROPIC_MODEL="deepseek-v4-pro[1m]" \
     ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro[1m]" \
     ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro[1m]" \
@@ -248,8 +248,9 @@ yolod() {
 
 yoloz() {
   env \
-    ANTHROPIC_BASE_URL="https://open.z.ai/api/paas/v4/" \
-    ANTHROPIC_AUTH_TOKEN="${ZAI_API_KEY}" \
+    ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic" \
+    API_TIMEOUT_MS="3000000" \
+    ANTHROPIC_API_KEY="${ZAI_API_KEY}" \
     ANTHROPIC_MODEL="glm-5.2[1m]" \
     ANTHROPIC_DEFAULT_OPUS_MODEL="glm-5.2[1m]" \
     ANTHROPIC_DEFAULT_SONNET_MODEL="glm-5.2[1m]" \
