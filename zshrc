@@ -241,6 +241,16 @@ yolod() {
   export CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
   export CLAUDE_CODE_EFFORT_LEVEL="max"
   export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC="1"
+  export CLAUDE_CODE_AUTO_COMPACT_WINDOW=1000000
+  claude --dangerously-skip-permissions "$@"
+}
+
+yoloz() {
+  export ANTHROPIC_BASE_URL="https://open.z.ai/api/paas/v4/"
+  export ANTHROPIC_API_KEY="${ZAI_API_KEY}"
+  export ANTHROPIC_DEFAULT_SONNET_MODEL="glm-5.2[1m]"
+  export ANTHROPIC_DEFAULT_OPUS_MODEL="glm-5.2[1m]"
+  export CLAUDE_CODE_AUTO_COMPACT_WINDOW=1000000
   claude --dangerously-skip-permissions "$@"
 }
 
