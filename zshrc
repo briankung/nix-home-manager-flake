@@ -262,6 +262,21 @@ yoloz() {
     claude --dangerously-skip-permissions "$@"
 }
 
+yolor() {
+  env \
+    ANTHROPIC_BASE_URL="https://openrouter.ai/api" \
+    ANTHROPIC_AUTH_TOKEN="${OPENROUTER_API_KEY}" \
+    ANTHROPIC_MODEL="xiaomi/mimo-v2.5-pro" \
+    ANTHROPIC_DEFAULT_OPUS_MODEL="xiaomi/mimo-v2.5-pro" \
+    ANTHROPIC_DEFAULT_SONNET_MODEL="xiaomi/mimo-v2.5-pro" \
+    ANTHROPIC_DEFAULT_HAIKU_MODEL="xiaomi/mimo-v2.5" \
+    CLAUDE_CODE_SUBAGENT_MODEL="xiaomi/mimo-v2.5" \
+    CLAUDE_CODE_EFFORT_LEVEL="max" \
+    CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC="1" \
+    CLAUDE_CODE_AUTO_COMPACT_WINDOW="1000000" \
+    claude --dangerously-skip-permissions "$@"
+}
+
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
