@@ -266,9 +266,9 @@ yolor() {
   env \
     ANTHROPIC_BASE_URL="https://openrouter.ai/api" \
     ANTHROPIC_AUTH_TOKEN="${OPENROUTER_API_KEY}" \
-    ANTHROPIC_MODEL="xiaomi/mimo-v2.5-pro" \
-    ANTHROPIC_DEFAULT_OPUS_MODEL="xiaomi/mimo-v2.5-pro" \
-    ANTHROPIC_DEFAULT_SONNET_MODEL="xiaomi/mimo-v2.5-pro" \
+    ANTHROPIC_MODEL="moonshotai/kimi-k3" \
+    ANTHROPIC_DEFAULT_OPUS_MODEL="moonshotai/kimi-k3" \
+    ANTHROPIC_DEFAULT_SONNET_MODEL="moonshotai/kimi-k3" \
     ANTHROPIC_DEFAULT_HAIKU_MODEL="xiaomi/mimo-v2.5" \
     CLAUDE_CODE_SUBAGENT_MODEL="xiaomi/mimo-v2.5" \
     CLAUDE_CODE_EFFORT_LEVEL="max" \
