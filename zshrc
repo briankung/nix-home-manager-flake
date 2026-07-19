@@ -269,8 +269,8 @@ yolor() {
     ANTHROPIC_MODEL="moonshotai/kimi-k3" \
     ANTHROPIC_DEFAULT_OPUS_MODEL="moonshotai/kimi-k3" \
     ANTHROPIC_DEFAULT_SONNET_MODEL="moonshotai/kimi-k3" \
-    ANTHROPIC_DEFAULT_HAIKU_MODEL="xiaomi/mimo-v2.5" \
-    CLAUDE_CODE_SUBAGENT_MODEL="xiaomi/mimo-v2.5" \
+    ANTHROPIC_DEFAULT_HAIKU_MODEL="xiaomi/mimo-v2.5-pro" \
+    CLAUDE_CODE_SUBAGENT_MODEL="xiaomi/mimo-v2.5-pro" \
     CLAUDE_CODE_EFFORT_LEVEL="max" \
     CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC="1" \
     CLAUDE_CODE_AUTO_COMPACT_WINDOW="1000000" \
