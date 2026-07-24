@@ -277,6 +277,40 @@ yolor() {
     claude --dangerously-skip-permissions "$@"
 }
 
+yolol() {
+  local host="127.0.0.1" port="8080"
+  local base="http://${host}:${port}"
+
+  # --- ensure llama.cpp server is up and the model is loaded ---
+  local code
+  code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 3 "${base}/health" 2>/dev/null)
+
+  if [ "$code" != "200" ]; then
+    if [ "$code" = "503" ]; then
+      printf '⏳ llama.cpp is UP at %s but still loading the model.\n' "$base" >&2
+      printf '   Wait a few seconds and re-run yolol.\n' >&2
+      printf '   Watch progress:  tail -f ~/.cache/huggingface/**/*.downloadInProgress 2>/dev/null; curl -s %s/health\n' "$base" >&2
+    else
+      printf '❌ No llama.cpp server responding at %s (health: %s)\n\n' "$base" "${code:-none}" >&2
+      printf 'Start it in another terminal, then re-run yolol:\n\n' >&2
+      printf '  llama-server -hf unsloth/Qwen3-Next-80B-A3B-Instruct-GGUF:Q4_K_M \\\n' >&2
+      printf '    --jinja -ngl 999 -c 65536 --port %s\n\n' "$port" >&2
+      printf 'First run downloads ~44GB to ~/.cache/huggingface (one time, resumable).\n' >&2
+      printf 'Tip (64GB Macs): sudo sysctl iogpu.wired_limit_mb=57344   # give the GPU more VRAM\n' >&2
+    fi
+    return 1
+  fi
+
+  # --- point Claude Code at the local model, then launch ---
+  export ANTHROPIC_BASE_URL="$base"
+  export ANTHROPIC_AUTH_TOKEN="dummy"          # any non-empty string; llama-server ignores it
+  export ANTHROPIC_MODEL="qwen3-next-80b"      # label only — the loaded GGUF is what serves
+  export ANTHROPIC_SMALL_FAST_MODEL="qwen3-next-80b"
+
+  printf '✅ llama.cpp ready at %s — launching Claude Code on the local model\n' "$base"
+  claude --dangerously-skip-permissions
+}
+
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
