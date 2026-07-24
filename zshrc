@@ -311,6 +311,21 @@ yolol() {
   claude --dangerously-skip-permissions --disallowedTools "Workflow"
 }
 
+# Control the llama.cpp LaunchAgent (com.brian.llama-server).
+# start/stop free or reclaim the ~40GB the model holds; enable/disable toggle login auto-start.
+llama-start() {
+  launchctl bootstrap "gui/$(id -u)" ~/Library/LaunchAgents/com.brian.llama-server.plist
+}
+llama-stop() {
+  launchctl bootout "gui/$(id -u)/com.brian.llama-server"
+}
+llama-enable() {
+  launchctl enable "gui/$(id -u)/com.brian.llama-server"
+}
+llama-disable() {
+  launchctl disable "gui/$(id -u)/com.brian.llama-server"
+}
+
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
