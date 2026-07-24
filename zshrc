@@ -308,7 +308,7 @@ yolol() {
   export ANTHROPIC_SMALL_FAST_MODEL="qwen3-next-80b"
 
   printf '✅ llama.cpp ready at %s — launching Claude Code on the local model\n' "$base"
-  claude --dangerously-skip-permissions
+  claude --dangerously-skip-permissions --disallowedTools "Workflow"
 }
 
 # Activate uv if uv is initialized
