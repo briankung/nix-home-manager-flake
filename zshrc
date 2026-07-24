@@ -332,6 +332,34 @@ llama() {
   esac
 }
 
+# Tab-completion for `llama`: our service verbs plus llama.cpp's native subcommands.
+# (native list is a static snapshot of `llama help all`; refresh it if llama.cpp changes.)
+_llama() {
+  if (( CURRENT == 2 )); then
+    local -a service native
+    service=(
+      'start:load the model / bring the service up'
+      'stop:unload the model and free the ~40GB'
+      'enable:auto-start on login'
+      'disable:stop auto-starting on login'
+      'restart:reload the service'
+      'status:show service state and /health'
+    )
+    native=(
+      'serve:HTTP API server' 'cli:interactive CLI' 'update:update llama'
+      'download:download a model' 'completion:text completion' 'bench:benchmark'
+      'batched-bench:batched decode benchmark' 'fit-params:fit model to memory'
+      'quantize:quantize a model' 'perplexity:compute perplexity'
+      'version:show version' 'licenses:third-party licenses' 'help:show commands'
+    )
+    _describe -t service 'llama service command' service
+    _describe -t native  'llama.cpp command'     native
+  else
+    _default
+  fi
+}
+compdef _llama llama
+
 # Activate uv if uv is initialized
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
