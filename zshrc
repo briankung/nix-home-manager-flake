@@ -311,19 +311,25 @@ yolol() {
   claude --dangerously-skip-permissions --disallowedTools "Workflow"
 }
 
-# Control the llama.cpp LaunchAgent (com.brian.llama-server).
-# start/stop free or reclaim the ~40GB the model holds; enable/disable toggle login auto-start.
-llama-start() {
-  launchctl bootstrap "gui/$(id -u)" ~/Library/LaunchAgents/com.brian.llama-server.plist
-}
-llama-stop() {
-  launchctl bootout "gui/$(id -u)/com.brian.llama-server"
-}
-llama-enable() {
-  launchctl enable "gui/$(id -u)/com.brian.llama-server"
-}
-llama-disable() {
-  launchctl disable "gui/$(id -u)/com.brian.llama-server"
+# `llama` wraps llama.cpp's own dispatcher with LaunchAgent service controls.
+# Our subcommands manage the com.brian.llama-server service — start/stop reclaim or
+# free the ~40GB the model holds, enable/disable toggle login auto-start. Anything else
+# falls through to the real llama binary (serve, cli, download, ...); none of these
+# names collide with llama.cpp's subcommands.
+llama() {
+  local uid; uid="$(id -u)"
+  local svc="gui/${uid}/com.brian.llama-server"
+  local plist="$HOME/Library/LaunchAgents/com.brian.llama-server.plist"
+  case "$1" in
+    start)   launchctl bootstrap "gui/${uid}" "$plist" ;;
+    stop)    launchctl bootout "$svc" ;;
+    enable)  launchctl enable "$svc" ;;
+    disable) launchctl disable "$svc" ;;
+    restart) launchctl kickstart -k "$svc" ;;
+    status)  launchctl print "$svc" 2>/dev/null | grep -E 'state =|pid =' || echo "service: not loaded"
+             curl -s -o /dev/null -w 'health: %{http_code}\n' --max-time 3 http://127.0.0.1:8080/health ;;
+    *)       command llama "$@" ;;
+  esac
 }
 
 # Activate uv if uv is initialized
