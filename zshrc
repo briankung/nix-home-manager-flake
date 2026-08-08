@@ -321,7 +321,11 @@ llama() {
   local svc="gui/${uid}/com.brian.llama-server"
   local plist="$HOME/Library/LaunchAgents/com.brian.llama-server.plist"
   case "$1" in
-    start)   launchctl bootstrap "gui/${uid}" "$plist" ;;
+    start)   if launchctl print "$svc" &>/dev/null; then
+               echo "already running (pid $(launchctl print "$svc" | awk '/pid =/ {print $3}'))"
+             else
+               launchctl bootstrap "gui/${uid}" "$plist"
+             fi ;;
     stop)    launchctl bootout "$svc" ;;
     enable)  launchctl enable "$svc" ;;
     disable) launchctl disable "$svc" ;;
